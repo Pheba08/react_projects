@@ -4,16 +4,16 @@ import adminlogo from "../assets/adminlogo.svg";
 import checkmail from "../assets/checkmail.svg";
 import buttonarraow from "../assets/buttonarrow.svg";
 
-const Checkemail = () => {
+const CheckEmail = () => {
   const navigate = useNavigate();
 
   const backtologin = () => {
-    navigate("/Loginpage");
+    navigate("/loginpage");
   };
 
   return (
     // main div
-    <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row lg:justify-between ">
+    <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row lg:justify-between">
       {/* Back to Login Button */}
       <button
         onClick={backtologin}
@@ -38,7 +38,7 @@ const Checkemail = () => {
         />
 
         {/* check email text */}
-        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 leading-snug text-justify pt-6 pl-12">
+        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 leading-snug text-left pt-6 pl-12">
           Check your email
         </h1>
 
@@ -79,4 +79,4 @@ const Checkemail = () => {
   );
 };
 
-export default Checkemail;
+export default CheckEmail;

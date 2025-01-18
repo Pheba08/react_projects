@@ -1,11 +1,11 @@
 import "./App.css";
-import Loginpage from "./components/Loginpage";
-import Forgotpassword from "./components/Forgotpassword";
-import Checkemail from "./components/Checkemail";
-import Createpassword from "./components/Createpassword";
+import LoginPage from "./components/LoginPage";
+import ForgotPassword from "./components/ForgotPassword";
+import CheckEmail from "./components/CheckEmail";
+import CreatePassword from "./components/CreatePassword";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { UserProvider } from "./components/UserContext";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   return (
@@ -13,12 +13,12 @@ function App() {
       <UserProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<Loginpage />} />
-            <Route path="/forgotpassword" element={<Forgotpassword />} />
-            <Route path="/checkemail" element={<Checkemail />} />
-            <Route path="/createpassword" element={<Createpassword />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/checkemail" element={<CheckEmail />} />
+            <Route path="/createpassword" element={<CreatePassword />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/loginpage" element={<Loginpage />} />
+            <Route path="/loginpage" element={<LoginPage />} />
           </Routes>
         </Router>
       </UserProvider>

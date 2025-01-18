@@ -2,18 +2,19 @@ import React, { useState, useContext } from "react";
 import adminlogo from "../assets/adminlogo.svg";
 import adminthree from "../assets/adminthree.svg";
 import eyebutton from "../assets/eyebutton.svg";
-import { Link, Navigate } from "react-router-dom";
-import UserContext from "../components/UserContext";
+import { Link } from "react-router-dom";
+import UserContext from "../context/UserContext";
+import { useNavigate } from "react-router";
 
 const users = [
-  { username: "admin1", password: "12345678" },
-  { username: "admin2", password: "012345678" },
+  { username: "admin1@gmail.com", password: "12345678" },
+  { username: "admin2@gmail.com", password: "012345678" },
 ];
 
-const Loginpage = () => {
+const LoginPage = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
-  const [redirectToHome, setRedirectToHome] = useState(false);
   const { setUsername } = useContext(UserContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -28,34 +29,39 @@ const Loginpage = () => {
     );
     if (usercheck) {
       setUsername(data.username);
-      setRedirectToHome(true);
+      localStorage.setItem("username", data.username); // Save to local storage
+
+      navigate("/home");
     } else {
       setError("Incorrect username or password. Please try again.");
     }
+  };
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!data.username || !data.password) {
       setError("Both fields are required");
+    } else if (!validateEmail(data.username)) {
+      setError("Please enter a valid email address");
     } else {
       checkUser();
     }
   };
 
-  if (redirectToHome) {
-    return <Navigate to="/home" />;
-  }
-
   return (
-    <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row lg:justify-between ">
+    <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row md:justify-between ">
       <div className="w-1/2">
         <img
           src={adminlogo}
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-2xl font-bold font-family-poppins text-[#000000] leading-snug text-justify pt-1 pl-12">
+        <h1 className="text-2xl font-bold font-family-poppins text-[#000000] leading-snug text-left pt-1 pl-12">
           Hello, <br />
           Welcome to Skills Connect
         </h1>
@@ -84,14 +90,14 @@ const Loginpage = () => {
                 type={passwordVisible ? "text" : "password"}
                 name="password"
                 value={data.password}
-                placeholder="• • • • • • • •"
+                placeholder="Enter Password"
                 onChange={changeHandler}
-                className="w-full pl-3 pr-10 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#000000] focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="w-full pl-3 pr-10 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
               <button
                 type="button"
                 className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
-                onClick={() => setPasswordVisible(!passwordVisible)} // Toggle password visibility
+                onClick={() => setPasswordVisible(!passwordVisible)}
               >
                 <img
                   src={eyebutton}
@@ -102,8 +108,8 @@ const Loginpage = () => {
             </div>
           </div>
 
-          <div className="flex items-center gap-x-8">
-            <label className="flex items-center gap-x-2">
+          <div className="relative flex items-center gap-x-8 -top-4">
+            <label className="flex items-center gap-x-2 ">
               <input type="checkbox" className="form-checkbox text-[#030303]" />
               <span className="text-[10px] text-[#030303]">Remember me</span>
             </label>
@@ -117,12 +123,14 @@ const Loginpage = () => {
 
           {/* Error Message */}
           {error && (
-            <div className="text-red-500 text-sm pt-2 pr-12">{error}</div>
+            <div className="absolute top-[390px] text-red-500 text-[10px]">
+              {error}
+            </div>
           )}
 
           <button
             type="submit"
-            className="w-[60px] h-[30px] bg-[#173E88] text-white rounded-lg font-family-Nunito text-[10px] float-start"
+            className="w-[82px] h-[34px] bg-[#173E88] text-white rounded-lg font-family-Nunito text-[12px] float-start"
           >
             Log in
           </button>
@@ -140,4 +148,4 @@ const Loginpage = () => {
   );
 };
 
-export default Loginpage;
+export default LoginPage;

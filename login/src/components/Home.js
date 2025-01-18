@@ -1,32 +1,36 @@
-import React, { useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import UserContext from '../components/UserContext'; // Import UserContext
-
-import welcome from '../assets/welcome.svg';
+import React, { useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import UserContext from "../context/UserContext";
+import welcome from "../assets/welcome.svg";
 
 const Home = () => {
-
   const navigate = useNavigate();
   const { username, setUsername } = useContext(UserContext);
 
+  // Load username from local storage on component mount
   useEffect(() => {
-    if (!username) {
-      navigate('/Loginpage');
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername); // Restore username to context
+    } else {
+      navigate("/loginpage"); // Redirect to login if no username found
     }
-  }, [username, navigate]);
+  }, []);
 
   const logout = () => {
-    setUsername('');
-    navigate('/Loginpage');
+    setUsername(""); // Clear context
+    localStorage.removeItem("username"); // Remove from local storage
+    navigate("/loginpage");
   };
 
   return (
     <div className="min-h-screen bg-[#E9F3FC] flex items-center justify-center">
-      <div className="container mx-auto px-4 lg:flex lg:items-center lg:justify-between">
-
+      <div className="container mx-auto px-4 md:flex md:items-center md:justify-between">
         {/* Left Section */}
         <div className="text-center lg:text-left">
-          <h1 className="text-[40px] font-bold text-gray-800 mb-4 text-poppins">Welcome!</h1>
+          <h1 className="text-[40px] font-bold text-gray-800 mb-4 text-poppins">
+            Welcome!
+          </h1>
           <p className="text-xl text-black text-poppins mb-6">{username}</p>
 
           <button
@@ -47,7 +51,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-  ); 
-}
+  );
+};
 
 export default Home;

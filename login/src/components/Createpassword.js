@@ -5,11 +5,11 @@ import eyebutton from "../assets/eyebutton.svg";
 import createpword from "../assets/createpword.svg";
 import buttonarraow from "../assets/buttonarrow.svg";
 
-const Createpassword = () => {
+const CreatePassword = () => {
   const navigate = useNavigate();
 
   const backtologin = () => {
-    navigate("/Loginpage");
+    navigate("/loginpage");
   };
 
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -43,7 +43,7 @@ const Createpassword = () => {
           />
 
           {/* text */}
-          <h1 className="text-2xl font-bold font-family-poppins text-[#000000] mb-6 leading-snug text-justify pt-6 pl-12">
+          <h1 className="text-2xl font-bold font-family-poppins text-[#000000] mb-6 leading-snug text-left pt-6 pl-12">
             Create a secure <br />
             password
           </h1>
@@ -58,7 +58,7 @@ const Createpassword = () => {
               <div className="relative w-[200px]">
                 <input
                   type={passwordVisible ? "text" : "password"}
-                  placeholder="• • • • • • • •"
+                  placeholder="Enter Password"
                   className="w-full pl-3  border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#000000] focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-12 text-sm"
                 />
                 <button
@@ -83,7 +83,7 @@ const Createpassword = () => {
               <div className="relative w-[200px]">
                 <input
                   type={confirmPasswordVisible ? "text" : "password"}
-                  placeholder="• • • • • • • •"
+                  placeholder="Enter Password"
                   className="w-full pl-3  border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#000000] focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-12 text-sm"
                 />
                 <button
@@ -127,4 +127,4 @@ const Createpassword = () => {
   );
 };
 
-export default Createpassword;
+export default CreatePassword;
