@@ -54,7 +54,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row md:justify-between ">
+    <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row md:justify-between overflow-hidden">
       <div className="w-1/2">
         <img
           src={adminlogo}
@@ -67,7 +67,7 @@ const LoginPage = () => {
         </h1>
 
         <form className="space-y-6 pl-12" onSubmit={handleSubmit}>
-          <div className="space-y-2 pt-8">
+          <div className="space-y-1 pt-8">
             <label className="block text-sm font-nunito text-#030303 text-justify pl-3">
               User Name
             </label>
@@ -77,11 +77,11 @@ const LoginPage = () => {
               value={data.username}
               placeholder="Enter User Name"
               onChange={changeHandler}
-              className="w-[198px] pl-3 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-12 text-sm"
+              className="w-[208px] pl-3 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-12 text-sm"
             />
           </div>
 
-          <div className="space-y-2 pt-8">
+          <div className="space-y-1 pt-8">
             <label className="block text-sm font-nunito text-[#030303] text-justify pl-3">
               Password
             </label>
@@ -92,11 +92,11 @@ const LoginPage = () => {
                 value={data.password}
                 placeholder="Enter Password"
                 onChange={changeHandler}
-                className="w-full pl-3 pr-10 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="w-[208px] pl-3 pr-10 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
               <button
                 type="button"
-                className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500"
+                className="absolute right-1 top-1/2 transform -translate-y-1/2 text-gray-500"
                 onClick={() => setPasswordVisible(!passwordVisible)}
               >
                 <img
@@ -108,9 +108,13 @@ const LoginPage = () => {
             </div>
           </div>
 
-          <div className="relative flex items-center gap-x-8 -top-4">
-            <label className="flex items-center gap-x-2 ">
-              <input type="checkbox" className="form-checkbox text-[#030303]" />
+          <div className="relative flex items-center gap-x-12 -top-4">
+            <label className="flex items-center gap-x-1 ">
+              <input
+                type="checkbox"
+                className="form-checkbox w-3 h-3 border border-[#A8A8A8] rounded-[3px] bg-transparent checked:bg-[#173E88] checked:border-transparent focus:outline-none"
+              />
+
               <span className="text-[10px] text-[#030303]">Remember me</span>
             </label>
             <Link
@@ -130,18 +134,18 @@ const LoginPage = () => {
 
           <button
             type="submit"
-            className="w-[82px] h-[34px] bg-[#173E88] text-white rounded-lg font-family-Nunito text-[12px] float-start"
+            className="w-[86px] h-[34px] bg-[#173E88] text-white rounded-lg font-family-Nunito text-[12px] float-start"
           >
             Log in
           </button>
         </form>
       </div>
 
-      <div className="h-full">
+      <div className="min-h-screen flex justify-center items-center ">
         <img
           src={adminthree}
           alt="Illustration"
-          className="w-screen h-screen pt-[70px] pl-[128px]"
+          className="w-full h-full max-w-screen-lg pt-3"
         />
       </div>
     </div>
