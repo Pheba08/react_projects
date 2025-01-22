@@ -7,8 +7,8 @@ import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router";
 
 const users = [
-  { username: "admin1@gmail.com", password: "12345678" },
-  { username: "admin2@gmail.com", password: "012345678" },
+  { username: "admin1@gmail.com", password: "12345" },
+  { username: "admin2@gmail.com", password: "98765" },
 ];
 
 const LoginPage = () => {
@@ -29,9 +29,7 @@ const LoginPage = () => {
     );
     if (usercheck) {
       setUsername(data.username);
-      localStorage.setItem("username", data.username); // Save to local storage
-
-      navigate("/home");
+      navigate("/homepage");
     } else {
       setError("Incorrect username or password. Please try again.");
     }
@@ -61,7 +59,7 @@ const LoginPage = () => {
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-2xl font-bold font-family-poppins text-[#000000] leading-snug text-left pt-1 pl-12">
+        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] text-left pt-1 pl-12">
           Hello, <br />
           Welcome to Skills Connect
         </h1>

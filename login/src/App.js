@@ -3,8 +3,8 @@ import LoginPage from "./components/LoginPage";
 import ForgotPassword from "./components/ForgotPassword";
 import CheckEmail from "./components/CheckEmail";
 import CreatePassword from "./components/CreatePassword";
-import Home from "./components/Home";
-import ChooseRole from "./components/ChooseRole";
+import DummyHome from "./components/DummyHome";
+import HomePage from "./components/HomePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
 
@@ -18,9 +18,9 @@ function App() {
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/checkemail" element={<CheckEmail />} />
             <Route path="/createpassword" element={<CreatePassword />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/dummyhome" element={<DummyHome />} />
             <Route path="/loginpage" element={<LoginPage />} />
-            <Route path="/chooserole" element={<ChooseRole />} />
+            <Route path="/homepage" element={<HomePage />} />
           </Routes>
         </Router>
       </UserProvider>

@@ -4,7 +4,7 @@ import adminlogo from "../assets/adminlogo.svg";
 import UserContext from "../context/UserContext";
 import welcome from "../assets/welcome.svg";
 
-const Home = () => {
+const DummyHome = () => {
   const navigate = useNavigate();
   const { username, setUsername } = useContext(UserContext);
 
@@ -74,4 +74,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default DummyHome;

@@ -43,7 +43,7 @@ const CreatePassword = () => {
           />
 
           {/* text */}
-          <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 leading-snug text-left pt-4 pl-12">
+          <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 text-left pt-4 pl-12">
             Create a secure <br />
             password
           </h1>

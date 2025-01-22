@@ -29,7 +29,7 @@ const CheckEmail = () => {
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 leading-snug text-left pt-6 pl-12">
+        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 text-left pt-6 pl-12">
           Check your email
         </h1>
         <p className="text-[12px] w-[600px] text-left font-family-Nunito font-400 text-[#030303] pt-6 pl-12">

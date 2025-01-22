@@ -45,7 +45,7 @@ const ForgotPassword = () => {
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-2 leading-snug text-left pt-2 pl-12">
+        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-2 text-left pt-2 pl-12">
           Forgot your <br />
           password?
         </h1>
