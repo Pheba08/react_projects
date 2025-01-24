@@ -91,15 +91,3 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
-
-
-
-
-      {/* <div className="h-full">
-        <img
-          src={Forgotpword}
-          alt="Forgot Password Illustration"
-          className="max-w-full h-[597px] pr-[90px] "
-        />
-      </div> */}
-
