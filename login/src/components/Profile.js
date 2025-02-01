@@ -1,99 +1,129 @@
 import React from "react";
 import NavProfile from "../components/NavProfile";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const handleEdit = () => {
+    navigate("/editprofile");
+  };
+  
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
       <NavProfile />
-      <div className="max-w-6xl mx-auto bg-white shadow-md rounded-md items-center justify-center p-6 mt-2 sm:mt-2 md:mt-4 lg:mt-6">
-        {/* Row 1: Profile Details */}
-        <div className="mb-6">
-          <h2 className="text-lg font-semibold mb-4 text-left text-[#173E88]">Profile details</h2>
-          <div className="flex flex-wrap gap-6">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-5">
+        {/* Profile Details */}
+        <div className="mb-4">
+          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+            Profile Details
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-left">
             {/* First Column */}
-            <div className="flex-1 min-w-[200px] text-left">
-              <div className="mb-4">
-                <p className="font-medium">Full Name</p>
-                <p>Abc</p>
-              </div>
-              <div className="mb-4">
-                <p className="font-medium">Year of Birth</p>
-                <p>0000</p>
-              </div>
-              <div className="mb-4">
-                <p className="font-medium">Gender</p>
-                <p>Gender</p>
-              </div>
-              <div>
-                <p className="font-medium">Language Proficiency</p>
-                <p>English</p>
-              </div>
+            <div>
+              <p className="text-[9px] text-[#A8A8A8] font-nunito">Full Name</p>
+              <p className="text-[9px]">Abc</p>
+
+              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                Year of Birth
+              </p>
+              <p className="text-[9px]">0000</p>
+
+              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                Gender
+              </p>
+              <p className="text-[9px]">Gender</p>
+
+              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                Language
+              </p>
+              <p className="text-[9px]">English</p>
             </div>
 
             {/* Second Column */}
-            <div className="flex-1 min-w-[200px] text-left">
-              <div className="mb-4">
-                <p className="font-medium">Primary Contact</p>
-                <p>+91 9876543210</p>
-              </div>
-              <div className="mb-4">
-                <p className="font-medium">Second Contact</p>
-                <p>+91 1234567890</p>
-              </div>
-              <div className="mb-4">
-                <p className="font-medium">Email</p>
-                <p>abc@example.com</p>
-              </div>
-              <div>
-                <p className="font-medium">Country</p>
-                <p>India</p>
-              </div>
+            <div>
+              <p className="text-[9px] text-[#A8A8A8] font-nunito">
+                Primary Contact Number
+              </p>
+              <p className="text-[9px]">+91 9876543210</p>
+
+              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                Secondary Contact Number
+              </p>
+              <p className="text-[9px]">+91 1234567890</p>
+
+              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                Email
+              </p>
+              <p className="text-[9px]">abc@example.com</p>
+
+              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                Country
+              </p>
+              <p className="text-[9px]">India</p>
             </div>
 
             {/* Third Column */}
-            <div className="flex-1 min-w-[200px] text-left">
-              <div>
-                <p className="font-medium">Address</p>
-                <p>123 Street Name, City, State, 123456</p>
+            <div>
+              <p className="text-[9px] text-[#A8A8A8] font-nunito">Address</p>
+              <p className="text-[9px]">123 Street Name, City, State, 123456</p>
+              {/* sl no */}
+              <p className="text-[9px] text-[#173E88] font-nunito pt-4 font-medium font-poppins">SL No</p>
+              <div className="w-[78px] h-[18px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded flex justify-items-end gap-[72px] items-center">
+                <p className="text-[9px] text-black pl-2">001</p>
+                </div>
+
+              {/* Certificate Upload Section */}
+              <div className="w-[200px] h-[26px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded-md flex justify-items-end gap-[72px] items-center">
+                <p className="text-[9px] text-black pl-2">Certifications</p>
+                <button className="bg-[#173E88] text-white text-[9px] px-5 py-[6px] rounded-md items-end">
+                  View
+                </button>
               </div>
             </div>
           </div>
 
           {/* Edit Button */}
-          <div className="flex justify-end mt-4">
-            <button className="bg-blue-500 text-white text-sm px-4 py-2 rounded-md">
-              Edit
-            </button>
-          </div>
+          <div className="flex justify-end mt-2">
+      <button
+        className="bg-[#173E88] text-white text-[10px] px-10 py-1 rounded-md"
+        onClick={handleEdit} 
+      >
+        Edit
+      </button>
+    </div>
         </div>
 
         {/* Divider Line */}
-        <div className="h-[2px] bg-[#94BDEB] w-full my-4"></div>
+        <div className="h-[1px] bg-[#94BDEB] w-full my-3"></div>
 
-        {/* Row 2: Role Managed */}
-        <div className="mb-6">
-          <h2 className="text-lg font-semibold mb-4 text-left text-[#173E88]">Role managed</h2>
-          <div className="flex items-center">
+        {/* Role Managed */}
+        <div className="mb-4">
+          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+            Role Managed
+          </h2>
+          <div className="flex items-center text-[10px]">
             <input
               type="checkbox"
               id="packManagement"
-              className="mr-2"
+              className="appearance-none w-4 h-4 border border-[#173E88] rounded-sm bg-[#173E88] checked:bg-[#173E88] checked:border-[#173E88] focus:ring-2 focus:ring-[#173E88] cursor-not-allowed"
               checked
               disabled
             />
-            <label htmlFor="packManagement" className="font-medium">
+            <label htmlFor="packManagement" className="ml-2 text-[#173E88]">
               Pack Management
             </label>
           </div>
         </div>
 
         {/* Divider Line */}
-        <div className="h-[2px] bg-[#94BDEB] w-full my-4"></div>
+        <div className="h-[1px] bg-[#94BDEB] w-full my-3"></div>
 
-        {/* Row 3: Request Role */}
+        {/* Request Role */}
         <div>
-          <h2 className="text-lg font-semibold mb-4 text-left text-[#173E88]">Request role</h2>
-          <div className="flex flex-wrap gap-6">
+          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+            Request Role
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-[9px]">
             {[
               "Pack management",
               "Master data management",
@@ -104,17 +134,23 @@ const Profile = () => {
               "Valuation",
               "Career management",
             ].map((role) => (
-              <div key={role} className="flex items-center min-w-[200px] text-left">
-                <input type="checkbox" id={role} className="mr-2" />
-                <label htmlFor={role}>{role}</label>
+              <div key={role} className="flex items-center">
+                <input
+                  type="checkbox"
+                  id={role}
+                  className="appearance-none w-4 h-4 border border-[#173E88] rounded-sm bg-white checked:bg-[#173E88] checked:border-[#173E88] focus:ring-2 focus:ring-[#173E88] cursor-pointer"
+                />
+                <label htmlFor={role} className="ml-2 text-black">
+                  {role}
+                </label>
               </div>
             ))}
           </div>
         </div>
 
         {/* Request Button */}
-        <div className="mt-6 flex justify-end">
-          <button className="bg-blue-500 text-white text-sm px-4 py-2 rounded-md">
+        <div className="flex justify-end mt-2 ">
+          <button className="bg-[#173E88] text-white text-[10px] px-8 py-1 rounded-md">
             Request
           </button>
         </div>

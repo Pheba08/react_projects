@@ -9,11 +9,15 @@ const NavProfile = () => {
   const navigate = useNavigate();
 
   const backtoprofile = () => {
-    navigate("/loginpage");
+    navigate("/homepage");
   };
 
   const handleLogout = () => {
     navigate("/loginpage");
+  };
+
+  const handleRole = () => {
+    navigate("/homepage");
   };
   return (
     <div>
@@ -24,23 +28,24 @@ const NavProfile = () => {
 
         {/* Second Layer */}
         <div className="bg-white h-[38px] flex items-center justify-between px-5 md:px-10">
+         
           {/* button */}
-          {/* <img
-            src={adminlogo}
-            alt="Skills Connect Logo"
-            className="w-[150px] h-[30px]"
-          /> */}
-
           <button
             onClick={backtoprofile}
             className="flex items-center gap-5 text-[#173E88] font-poppins font-semibold text-[19px]"
           >
-            <img src={buttonarraowblue} alt="Button arrow" className="w-3 h-3" />
+            <img
+              src={buttonarraowblue}
+              alt="Button arrow"
+              className="w-3 h-3"
+            />
             <span>Profile</span>
           </button>
 
           {/* Right-side buttons */}
-          <div className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[748px]">
+          <div
+          onClick={handleRole}
+          className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[748px]">
             {/* Chose your role */}
             <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[116px] h-[26px] border-[1px] border-[#173E88] rounded-2xl  md:block">
               Chose your role
