@@ -7,19 +7,20 @@ const Profile = () => {
   const handleEdit = () => {
     navigate("/editprofile");
   };
-  
+
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
       <NavProfile />
-      <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-5">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-5 pl-10 pr-10">
         {/* Profile Details */}
         <div className="mb-4">
           <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
             Profile Details
           </h2>
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-left">
             {/* First Column */}
-            <div>
+            <div className="grid grid-cols-1 items-start">
               <p className="text-[9px] text-[#A8A8A8] font-nunito">Full Name</p>
               <p className="text-[9px]">Abc</p>
 
@@ -40,57 +41,65 @@ const Profile = () => {
             </div>
 
             {/* Second Column */}
-            <div>
-              <p className="text-[9px] text-[#A8A8A8] font-nunito">
-                Primary Contact Number
-              </p>
-              <p className="text-[9px]">+91 9876543210</p>
+            <div className="grid grid-cols-1 place-items-center ">
+              <div className="text-left">
+                <p className="text-[9px] text-[#A8A8A8] font-nunito">
+                  Primary Contact Number
+                </p>
+                <p className="text-[9px]">+91 9876543210</p>
 
-              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
-                Secondary Contact Number
-              </p>
-              <p className="text-[9px]">+91 1234567890</p>
+                <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                  Secondary Contact Number
+                </p>
+                <p className="text-[9px]">+91 1234567890</p>
 
-              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
-                Email
-              </p>
-              <p className="text-[9px]">abc@example.com</p>
+                <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                  Email
+                </p>
+                <p className="text-[9px]">abc@example.com</p>
 
-              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
-                Country
-              </p>
-              <p className="text-[9px]">India</p>
+                <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                  Country
+                </p>
+                <p className="text-[9px]">India</p>
+              </div>
             </div>
 
             {/* Third Column */}
-            <div>
-              <p className="text-[9px] text-[#A8A8A8] font-nunito">Address</p>
-              <p className="text-[9px]">123 Street Name, City, State, 123456</p>
-              {/* sl no */}
-              <p className="text-[9px] text-[#173E88] font-nunito pt-4 font-medium font-poppins">SL No</p>
-              <div className="w-[78px] h-[18px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded flex justify-items-end gap-[72px] items-center">
-                <p className="text-[9px] text-black pl-2">001</p>
+            <div className="grid grid-cols-1 place-items-end">
+              <div className="text-left">
+                <p className="text-[9px] text-[#A8A8A8] font-nunito">Address</p>
+                <p className="text-[9px]">
+                  123 Street Name, City, State, 123456
+                </p>
+                {/* sl no */}
+                <p className="text-[9px] text-[#173E88] font-nunito pt-4 font-medium font-poppins">
+                  SL No
+                </p>
+                <div className="w-[78px] h-[18px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded flex justify-items-end gap-[72px] items-center">
+                  <p className="text-[9px] text-black pl-2">001</p>
                 </div>
 
-              {/* Certificate Upload Section */}
-              <div className="w-[200px] h-[26px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded-md flex justify-items-end gap-[72px] items-center">
-                <p className="text-[9px] text-black pl-2">Certifications</p>
-                <button className="bg-[#173E88] text-white text-[9px] px-5 py-[6px] rounded-md items-end">
-                  View
-                </button>
+                {/* Certificate Upload Section */}
+                <div className="w-[200px] h-[26px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded-md flex justify-items-end gap-[72px] items-center">
+                  <p className="text-[9px] text-black pl-2">Certifications</p>
+                  <button className="bg-[#173E88] text-white text-[9px] px-5 py-[6px] rounded-md items-end">
+                    View
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Edit Button */}
           <div className="flex justify-end mt-2">
-      <button
-        className="bg-[#173E88] text-white text-[10px] px-10 py-1 rounded-md"
-        onClick={handleEdit} 
-      >
-        Edit
-      </button>
-    </div>
+            <button
+              className="bg-[#173E88] text-white text-[10px] px-10 py-1 rounded-md"
+              onClick={handleEdit}
+            >
+              Edit
+            </button>
+          </div>
         </div>
 
         {/* Divider Line */}

@@ -45,7 +45,7 @@ const NavProfile = () => {
           {/* Right-side buttons */}
           <div
           onClick={handleRole}
-          className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[748px]">
+          className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[766px]">
             {/* Chose your role */}
             <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[116px] h-[26px] border-[1px] border-[#173E88] rounded-2xl  md:block">
               Chose your role

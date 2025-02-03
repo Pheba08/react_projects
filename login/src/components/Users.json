@@ -1,0 +1,12 @@
+{
+    "users": [
+      { "username": "admin1@gmail.com", "password": "111", "tiles": ["master data management", "login Authorization", "question creation", "question bank review", "valuation", "pack management", "collection view"] },
+      { "username": "admin2@gmail.com", "password": "222", "tiles": ["master data management", "login Authorization", "question creation", "question bank review", "valuation", "pack management"] },
+      { "username": "admin3@gmail.com", "password": "333", "tiles": ["master data management", "login Authorization", "question creation", "question bank review", "valuation"] },
+      { "username": "admin4@gmail.com", "password": "444", "tiles": ["master data management", "login Authorization", "question creation", "question bank review"] },
+      { "username": "admin5@gmail.com", "password": "555", "tiles": ["master data management", "login Authorization", "question creation"] },
+      { "username": "admin6@gmail.com", "password": "666", "tiles": ["master data management", "login Authorization"] },
+      { "username": "admin7@gmail.com", "password": "777", "tiles": ["master data management"] }
+    ]
+  }
+  

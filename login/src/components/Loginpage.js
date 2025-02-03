@@ -5,11 +5,7 @@ import eyebutton from "../assets/eyebutton.svg";
 import { Link } from "react-router-dom";
 import UserContext from "../context/UserContext";
 import { useNavigate } from "react-router";
-
-const users = [
-  { username: "admin1@gmail.com", password: "12345" },
-  { username: "admin2@gmail.com", password: "98765" },
-];
+import users from "../components/Users.json";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -23,13 +19,13 @@ const LoginPage = () => {
   };
 
   const checkUser = () => {
-    const usercheck = users.find(
+    const usercheck = users.users.find(
       (user) =>
         user.username === data.username && user.password === data.password
     );
     if (usercheck) {
       setUsername(data.username);
-      navigate("/homepage");
+      navigate("/homepage"); // Navigate after login success
     } else {
       setError("Incorrect username or password. Please try again.");
     }
@@ -112,7 +108,6 @@ const LoginPage = () => {
                 type="checkbox"
                 className="form-checkbox w-3 h-3 border border-[#A8A8A8] rounded-[3px] bg-transparent checked:bg-[#173E88] checked:border-transparent focus:outline-none"
               />
-
               <span className="text-[10px] text-[#030303]">Remember me</span>
             </label>
             <Link

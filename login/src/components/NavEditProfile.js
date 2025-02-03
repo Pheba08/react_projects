@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import buttonarraowblue from "../assets/buttonarrowblue.svg";
 
@@ -6,7 +6,7 @@ const NavEditProfile = () => {
   const navigate = useNavigate();
 
   const backtoprofile = () => {
-    navigate("/homepage");
+    navigate("/profile");
   };
 
   return (
