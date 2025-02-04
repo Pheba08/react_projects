@@ -34,20 +34,20 @@ const NavHome = () => {
           {/* Right-side buttons */}
           <div className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[820px]">
             {/* Inbox Button */}
-            <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl  md:block">
+            <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl md:block hover:bg-[#173E88] hover:text-white">
               Inbox
             </button>
 
             {/* User Icon */}
             <div className="pt-[6px]">
               <button
-                className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full"
+                className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full hover:bg-[#173E88]"
                 onClick={handleProfile}
               >
                 <img
                   src={UserIcon}
                   alt="User"
-                  className="w-[16px] h-[16px] pl-[6px]"
+                  className="w-[16px] h-[16px] pl-[6px] hover:invert"
                 />
               </button>
             </div>
@@ -56,7 +56,7 @@ const NavHome = () => {
             <div>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl flex items-center justify-center gap-[5px]"
+                className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl flex items-center justify-center gap-[5px] transition-all duration-300 hover:bg-[#173E88] hover:text-white"
               >
                 Menu
                 <img

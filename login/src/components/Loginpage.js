@@ -2,10 +2,78 @@ import React, { useState, useContext } from "react";
 import adminlogo from "../assets/adminlogo.svg";
 import adminthree from "../assets/adminthree.svg";
 import eyebutton from "../assets/eyebutton.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
-import { useNavigate } from "react-router";
-import users from "../components/Users.json";
+
+const dummyData = {
+  users: [
+    {
+      username: "admin1@gmail.com",
+      password: "111",
+      tiles: [
+        "master data management",
+        "login Authorization",
+        "question creation",
+        "question bank review",
+        "valuation",
+        "pack management",
+        "collection view",
+      ],
+    },
+    {
+      username: "admin2@gmail.com",
+      password: "222",
+      tiles: [
+        "master data management",
+        "login Authorization",
+        "question creation",
+        "question bank review",
+        "valuation",
+        "pack management",
+      ],
+    },
+    {
+      username: "admin3@gmail.com",
+      password: "333",
+      tiles: [
+        "master data management",
+        "login Authorization",
+        "question creation",
+        "question bank review",
+        "valuation",
+      ],
+    },
+    {
+      username: "admin4@gmail.com",
+      password: "444",
+      tiles: [
+        "master data management",
+        "login Authorization",
+        "question creation",
+        "question bank review",
+      ],
+    },
+    {
+      username: "admin5@gmail.com",
+      password: "555",
+      tiles: [
+        "master data management",
+        "login Authorization",
+        "question creation",
+      ],
+    },
+    {
+      username: "admin6@gmail.com",
+      password: "666",
+      tiles: ["master data management", "login Authorization"],
+    },
+    {
+      username: "admin7@gmail.com",
+      password: "777",
+      tiles: ["master data management"],
+    },
+  ],
+};
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -13,19 +81,20 @@ const LoginPage = () => {
   const [error, setError] = useState("");
   const { setUsername } = useContext(UserContext);
   const [passwordVisible, setPasswordVisible] = useState(false);
+  const [userData, setUserData] = useState(dummyData);
 
   const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
 
   const checkUser = () => {
-    const usercheck = users.users.find(
+    const usercheck = userData.users.find(
       (user) =>
         user.username === data.username && user.password === data.password
     );
     if (usercheck) {
       setUsername(data.username);
-      navigate("/homepage"); // Navigate after login success
+      navigate("/homepage", { state: { userData: usercheck } }); // Pass the current user data as state
     } else {
       setError("Incorrect username or password. Please try again.");
     }
@@ -71,7 +140,7 @@ const LoginPage = () => {
               value={data.username}
               placeholder="Enter User Name"
               onChange={changeHandler}
-              className="w-[208px] pl-3 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-12 text-sm"
+              className="w-[252px] pl-3 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 absolute left-12 text-sm"
             />
           </div>
 
@@ -79,14 +148,14 @@ const LoginPage = () => {
             <label className="block text-sm font-nunito text-[#030303] text-justify pl-3">
               Password
             </label>
-            <div className="relative w-[200px]">
+            <div className="relative w-[246px]">
               <input
                 type={passwordVisible ? "text" : "password"}
                 name="password"
                 value={data.password}
                 placeholder="Enter Password"
                 onChange={changeHandler}
-                className="w-[208px] pl-3 pr-10 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                className="w-[252px] pl-3 pr-10 border rounded-md border-[#A8A8A8] bg-transparent text-gray-900 placeholder-[#A8A8A8] focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
               <button
                 type="button"
@@ -102,7 +171,7 @@ const LoginPage = () => {
             </div>
           </div>
 
-          <div className="relative flex items-center gap-x-12 -top-4">
+          <div className="relative flex items-center gap-x-24 -top-4">
             <label className="flex items-center gap-x-1 ">
               <input
                 type="checkbox"

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import masterdata from "../assets/masterdata.svg";
 import loginauth from "../assets/loginauth.svg";
 import qncreation from "../assets/qncreation.svg";
@@ -9,25 +9,26 @@ import packmanagement from "../assets/packmanagement.svg";
 import collectionview from "../assets/collectionview.svg";
 import NavHome from "../components/NavHome";
 import UserContext from "../context/UserContext";
-import usersData from "../components/Users.json";
 
 const HomePage = () => {
-  const { username } = useContext(UserContext);
-  const [userTiles, setUserTiles] = useState([]);
+  const { username, setUsername } = useContext(UserContext);
+  const location = useLocation();
   const navigate = useNavigate();
+  const [userTiles, setUserTiles] = useState([]);
 
   useEffect(() => {
-    if (username) {
-      const currentUser = usersData.users.find(
-        (user) => user.username === username
-      );
-      if (currentUser) {
-        setUserTiles(currentUser.tiles);
-      }
-    } else {
+    // Check if there's user data passed via location.state
+    const userData = location.state?.userData || null;
+
+    if (userData) {
+      // If user data is available (first load or redirected login), set tiles
+      setUserTiles(userData.tiles);
+      setUsername(userData.username); // Set the username in context
+    } else if (!username) {
+      // If no username in context and no userData in state, navigate to login
       navigate("/loginpage");
     }
-  }, [username, navigate]);
+  }, [location.state, navigate, username, setUsername]);
 
   const isTileEnabled = (tileName) => userTiles.includes(tileName);
 
