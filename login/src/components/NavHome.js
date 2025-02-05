@@ -4,14 +4,83 @@ import adminlogo from "../assets/adminlogo.svg";
 import UserIcon from "../assets/UserIcon.svg";
 import MenuButton from "../assets/MenuButton.svg";
 
+const dummyData = [
+  {
+    username: "admin1@gmail.com",
+    name: "Admin One",
+    email: "admin1@gmail.com",
+    birthYear: "1990",
+    gender: "Male",
+    language: "English",
+    primaryContact: "+91 9876543210",
+    secondaryContact: "+91 1234567890",
+    country: "India",
+    address: "123 Street Name, City, State, 123456",
+    slNo: "001",
+  },
+  {
+    username: "admin2@gmail.com",
+    name: "Admin Two",
+    email: "admin2@gmail.com",
+    birthYear: "1985",
+    gender: "Female",
+    language: "Spanish",
+    primaryContact: "+91 9876543211",
+    secondaryContact: "+91 1234567891",
+    country: "USA",
+    address: "456 Avenue Name, City, State, 654321",
+    slNo: "002",
+  },
+  {
+    username: "admin3@gmail.com",
+    name: "Admin Three",
+    email: "admin3@gmail.com",
+    birthYear: "1985",
+    gender: "Female",
+    language: "Spanish",
+    primaryContact: "+91 9876543211",
+    secondaryContact: "+91 1234567891",
+    country: "USA",
+    address: "456 Avenue Name, City, State, 654321",
+    slNo: "003",
+  },
+  {
+    username: "admin4@gmail.com",
+    name: "Admin Four",
+    email: "admin4@gmail.com",
+    birthYear: "1985",
+    gender: "Female",
+    language: "Spanish",
+    primaryContact: "+91 9876543211",
+    secondaryContact: "+91 1234567891",
+    country: "USA",
+    address: "456 Avenue Name, City, State, 654321",
+    slNo: "004",
+  },
+
+ 
+ 
+];
+
 const NavHome = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const [loggedInUser, setLoggedInUser] = useState(""); // Initially empty
   const navigate = useNavigate();
 
-  const handleProfile = () => {
-    navigate("/profile");
-  };
 
+
+  const handleProfile = () => {
+    // Find the logged-in user's data
+    const userData = dummyData.find((user) => user.username === loggedInUser);
+
+    if (userData) {
+      navigate("/profile", { state: { userData } });
+    } else {
+      console.error("User data not found!");
+    }
+  };
+  
   const handleLogout = () => {
     navigate("/loginpage");
   };

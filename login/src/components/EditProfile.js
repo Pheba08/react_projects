@@ -1,10 +1,64 @@
-import React from "react";
-import NavEditProfile from "../components/NavEditProfile";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import buttonarraowblue from "../assets/buttonarrowblue.svg";
 
 const EditProfile = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { userData } = location.state || {}; // Get the userData from location state
+
+  // Set initial state for the form based on userData
+  const [formData, setFormData] = useState({
+    name: userData?.name || "",
+    birthYear: userData?.birthYear || "",
+    gender: userData?.gender || "",
+    language: userData?.language || "",
+    primaryContact: userData?.primaryContact || "",
+    secondaryContact: userData?.secondaryContact || "",
+    email: userData?.email || "",
+    country: userData?.country || "",
+    address: userData?.address || "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    // When saving, we pass the updated userData back to the Profile page
+    navigate("/profile", {
+      state: { userData: formData }, // Passing updated data
+    });
+  };
+
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
-      <NavEditProfile />
+      {/* Navbar */}
+      <nav>
+        {/* First Layer */}
+        <div className="bg-gradient-to-r from-[#173E88] to-[#5083CD] h-[38px]"></div>
+
+        {/* Second Layer */}
+        <div className="bg-white h-[38px] flex items-center justify-between px-5 md:px-10">
+          {/* button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-5 text-[#173E88] font-poppins font-semibold text-[19px]"
+          >
+            <img
+              src={buttonarraowblue}
+              alt="Button arrow"
+              className="w-3 h-3"
+            />
+            <span>Edit Profile</span>
+          </button>
+        </div>
+      </nav>
+
       <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-10">
         {/* Profile Header */}
         <div className="flex justify-between items-center mb-4">
@@ -30,9 +84,13 @@ const EditProfile = () => {
                 <input
                   type="text"
                   placeholder="Full name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 />
               </div>
+
 
               <div className="mb-1">
                 <p className="pl-2 text-[9px] text-black font-nunito mt-2 text-left">
@@ -41,6 +99,9 @@ const EditProfile = () => {
                 <input
                   type="text"
                   placeholder="Year of birth"
+                  name="birthYear"
+                  value={formData.birthYear}
+                  onChange={handleChange}
                   className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 />
               </div>
@@ -49,13 +110,18 @@ const EditProfile = () => {
                 <p className="pl-2 text-[9px] text-black font-nunito mt-2 text-left">
                   Gender
                 </p>
-                <select className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md text-[#A8A8A8]">
-                  <option value="" disabled selected className="text-[#A8A8A8]">
+                <select
+                  name="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md text-[#A8A8A8]"
+                >
+                  <option value="" disabled className="text-[#A8A8A8]">
                     Gender
                   </option>
-                  <option>Male</option>
-                  <option>Female</option>
-                  <option>Other</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
 
@@ -63,14 +129,19 @@ const EditProfile = () => {
                 <p className="pl-2 text-[9px] text-black font-nunito mt-2 text-left">
                   Language Proficiency
                 </p>
-                <select className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md text-[#A8A8A8]">
+                <select
+                  name="language"
+                  value={formData.language}
+                  onChange={handleChange}
+                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md text-[#A8A8A8]"
+                >
                   <option value="" disabled selected className="text-[#A8A8A8]">
                     Language
                   </option>
-                  <option>English</option>
-                  <option>Spanish</option>
-                  <option>French</option>
-                  <option>Other</option>
+                  <option value="English">English</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="French">French</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
             </div>
@@ -83,19 +154,25 @@ const EditProfile = () => {
                 </p>
                 <input
                   type="text"
-                  placeholder="Contact Number"
-                  className="w-full h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  placeholder="Contact number"
+                  name="primaryContact"
+                  value={formData.primaryContact}
+                  onChange={handleChange}
+                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 />
               </div>
 
               <div className="w-[240px] mb-4">
                 <p className="text-[9px] text-black font-nunito text-left pl-2">
-                  Second Contact Number
+                  Secondary Contact Number
                 </p>
                 <input
                   type="text"
-                  placeholder="Contact Number"
-                  className="w-full h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  placeholder="Contact number"
+                  name="secondaryContact"
+                  value={formData.secondaryContact}
+                  onChange={handleChange}
+                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 />
               </div>
 
@@ -104,9 +181,12 @@ const EditProfile = () => {
                   Email
                 </p>
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Email"
-                  className="w-full h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 />
               </div>
 
@@ -117,7 +197,10 @@ const EditProfile = () => {
                 <input
                   type="text"
                   placeholder="Country"
-                  className="w-full h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  name="country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 />
               </div>
             </div>
@@ -130,6 +213,9 @@ const EditProfile = () => {
                 </p>
                 <textarea
                   placeholder="Address"
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
                   className="w-full h-[130px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
                 ></textarea>
               </div>
@@ -146,7 +232,10 @@ const EditProfile = () => {
 
           {/* Save Button */}
           <div className="flex justify-end mt-4">
-            <button className="w-[105px] h-[30px] bg-[#173E88] text-white text-[10px] px-10 py-1 rounded-md">
+            <button
+              className="w-[105px] h-[30px] bg-[#173E88] text-white text-[10px] px-10 py-1 rounded-md"
+              onClick={handleSave}
+            >
               Save
             </button>
           </div>

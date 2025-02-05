@@ -1,16 +1,112 @@
-import React from "react";
-import NavProfile from "../components/NavProfile";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import UserIcon from "../assets/UserIcon.svg";
+import MenuButton from "../assets/MenuButton.svg";
+import buttonarraowblue from "../assets/buttonarrowblue.svg";
 
 const Profile = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const userData = location.state?.userData; // Get user data from state
+
   const handleEdit = () => {
-    navigate("/editprofile");
+    navigate("/editprofile", { state: { userData } });
   };
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+    const backtoprofile = () => {
+      navigate("/homepage");
+    };
+  
+    const handleLogout = () => {
+      navigate("/loginpage");
+    };
+  
+    const handleRole = () => {
+      navigate("/homepage");
+    };
 
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
-      <NavProfile />
+      {/* Navbar */}
+      <nav>
+        {/* First Layer */}
+        <div className="bg-gradient-to-r from-[#173E88] to-[#5083CD] h-[38px]"></div>
+
+        {/* Second Layer */}
+        <div className="bg-white h-[38px] flex items-center justify-between px-5 md:px-10">
+         
+          {/* button */}
+          <button
+            onClick={backtoprofile}
+            className="flex items-center gap-5 text-[#173E88] font-poppins font-semibold text-[19px]"
+          >
+            <img
+              src={buttonarraowblue}
+              alt="Button arrow"
+              className="w-3 h-3"
+            />
+            <span>Profile</span>
+          </button>
+
+          {/* Right-side buttons */}
+          <div
+          onClick={handleRole}
+          className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[766px]">
+            {/* Chose your role */}
+            <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[116px] h-[26px] border-[1px] border-[#173E88] rounded-2xl md:block hover:bg-[#173E88] hover:text-white">
+              Chose your role
+            </button>
+
+            {/* Inbox Button */}
+            <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl  md:block hover:bg-[#173E88] hover:text-white">
+              Inbox
+            </button>
+
+            {/* User Icon */}
+            <div className="pt-[6px]">
+              <button className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full hover:bg-[#173E88]">
+                <img
+                  src={UserIcon}
+                  alt="User"
+                  className="w-[16px] h-[16px] pl-[6px] hover:invert"
+                />
+              </button>
+            </div>
+
+            {/* Menu Button */}
+            <div>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl flex items-center justify-center gap-[5px] transition-all duration-300 hover:bg-[#173E88] hover:text-white"
+              >
+                Menu
+                <img
+                  src={MenuButton}
+                  alt="Menu"
+                  className="w-[17px] h-[17px]"
+                />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isMenuOpen && (
+                <div className="absolute mt-2 bg-[#173E88] rounded-md shadow-lg w-[64px]">
+                  <button
+                    onClick={handleLogout}
+                    className="px-3 py-2 text-left text-[12px] text-white"
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
       <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-5 pl-10 pr-10">
         {/* Profile Details */}
         <div className="mb-4">
@@ -22,22 +118,22 @@ const Profile = () => {
             {/* First Column */}
             <div className="grid grid-cols-1 items-start">
               <p className="text-[9px] text-[#A8A8A8] font-nunito">Full Name</p>
-              <p className="text-[9px]">Abc</p>
+              <p className="text-[9px]">{userData.name}</p>
 
               <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
                 Year of Birth
               </p>
-              <p className="text-[9px]">0000</p>
+              <p className="text-[9px]">{userData.birthYear}</p>
 
               <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
                 Gender
               </p>
-              <p className="text-[9px]">Gender</p>
+              <p className="text-[9px]">{userData.gender}</p>
 
               <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
                 Language
               </p>
-              <p className="text-[9px]">English</p>
+              <p className="text-[9px]">{userData.language}</p>
             </div>
 
             {/* Second Column */}
@@ -46,22 +142,22 @@ const Profile = () => {
                 <p className="text-[9px] text-[#A8A8A8] font-nunito">
                   Primary Contact Number
                 </p>
-                <p className="text-[9px]">+91 9876543210</p>
+                <p className="text-[9px]">{userData.primaryContact}</p>
 
                 <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
                   Secondary Contact Number
                 </p>
-                <p className="text-[9px]">+91 1234567890</p>
+                <p className="text-[9px]">{userData.secondaryContact}</p>
 
                 <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
                   Email
                 </p>
-                <p className="text-[9px]">abc@example.com</p>
+                <p className="text-[9px]">{userData.email}</p>
 
                 <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
                   Country
                 </p>
-                <p className="text-[9px]">India</p>
+                <p className="text-[9px]">{userData.country}</p>
               </div>
             </div>
 
@@ -69,15 +165,13 @@ const Profile = () => {
             <div className="grid grid-cols-1 place-items-end">
               <div className="text-left">
                 <p className="text-[9px] text-[#A8A8A8] font-nunito">Address</p>
-                <p className="text-[9px]">
-                  123 Street Name, City, State, 123456
-                </p>
+                <p className="text-[9px]">{userData.address}</p>
                 {/* sl no */}
                 <p className="text-[9px] text-[#173E88] font-nunito pt-4 font-medium font-poppins">
                   SL No
                 </p>
                 <div className="w-[78px] h-[18px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded flex justify-items-end gap-[72px] items-center">
-                  <p className="text-[9px] text-black pl-2">001</p>
+                  <p className="text-[9px] text-black pl-2">{userData.slNo}</p>
                 </div>
 
                 {/* Certificate Upload Section */}
