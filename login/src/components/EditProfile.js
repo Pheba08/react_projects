@@ -29,9 +29,8 @@ const EditProfile = () => {
   };
 
   const handleSave = () => {
-    // When saving, we pass the updated userData back to the Profile page
     navigate("/profile", {
-      state: { userData: formData }, // Passing updated data
+      state: { userData: formData },
     });
   };
 

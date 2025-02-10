@@ -11,6 +11,10 @@ import Profile from "./components/Profile";
 import EditProfile from "./components/EditProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
+import Inbox from "./components/Inbox";
+import Master from "./components/Master";
+import EditQualification from "./components/EditQualification";
+import AddQualification from "./components/AddQualification";
 
 function App() {
   return (
@@ -25,10 +29,14 @@ function App() {
             <Route path="/dummyhome" element={<DummyHome />} />
             <Route path="/loginpage" element={<LoginPage />} />
             <Route path="/homepage" element={<HomePage />} />
-            
+
             <Route path="/profile" element={<Profile />} />
-            
+
             <Route path="/editprofile" element={<EditProfile />} />
+            <Route path="/inbox" element={<Inbox />} />
+            <Route path="/master" element={<Master />} />
+            <Route path="/editqualification" element={<EditQualification />} />
+            <Route path="/addqualification" element={<AddQualification />} />
           </Routes>
         </Router>
       </UserProvider>
