@@ -78,7 +78,6 @@ const dummyData = [
     address: "456 Avenue Name, City, State, 654321",
     slNo: "005",
   },
-  
 ];
 
 const HomePage = () => {
@@ -122,6 +121,21 @@ const HomePage = () => {
 
   const isTileEnabled = (tileName) => userTiles.includes(tileName);
 
+  const [selectedTile, setSelectedTile] = useState(null);
+
+  const handleTileClick = (tileName) => {
+    // Toggle selection
+    setSelectedTile(selectedTile === tileName ? null : tileName);
+  };
+
+  const handleNextClick = () => {
+    if (selectedTile === "master data management") {
+      navigate("/master");
+    } else if (selectedTile === "login Authorization") {
+      navigate("/loginauthorization");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
       {/* Navbar */}
@@ -141,8 +155,9 @@ const HomePage = () => {
           {/* Right-side buttons */}
           <div className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[820px]">
             {/* Inbox Button */}
-            <button className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl md:block hover:bg-[#173E88] hover:text-white"
-            onClick={handleInbox}
+            <button
+              className="pt-[-1px] text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl md:block hover:bg-[#173E88] hover:text-white"
+              onClick={handleInbox}
             >
               Inbox
             </button>
@@ -202,12 +217,19 @@ const HomePage = () => {
 
             {/* Master Data Management */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
-    ${
-      isTileEnabled("master data management")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+          ${
+            selectedTile === "master data management"
+              ? "border-[#173E88]"
+              : "border-[#3D75DF33]"
+          } 
+          rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
+          ${
+            isTileEnabled("master data management")
+              ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+              : "opacity-50 pointer-events-none"
+          }`}
+              onClick={() => handleTileClick("master data management")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Master data management
@@ -221,12 +243,19 @@ const HomePage = () => {
 
             {/* Login Authorization */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+    ${
+      selectedTile === "login Authorization"
+        ? "border-[#173E88]"
+        : "border-[#3D75DF33]"
+    } 
+    rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
     ${
       isTileEnabled("login Authorization")
         ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
         : "opacity-50 pointer-events-none"
     }`}
+              onClick={() => handleTileClick("login Authorization")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Login authorization
@@ -338,8 +367,10 @@ const HomePage = () => {
           <div className="flex justify-center md:pl-[40px] md:items-end lg:items-end">
             <button
               className="px-8 py-2 bg-[#173E88] text-Nunito text-[14px] text-white rounded-lg 
-                     transition-all duration-300 
-                     hover:bg-[#0f2a5e] hover:scale-105 hover:shadow-lg"
+              transition-all duration-300 
+              hover:bg-[#0f2a5e] hover:scale-105 hover:shadow-lg"
+              onClick={handleNextClick}
+              disabled={!selectedTile}
             >
               Next
             </button>

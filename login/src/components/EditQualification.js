@@ -1,10 +1,30 @@
 import React, { useState } from "react";
 import adminlogoWhite from "../assets/adminlogoWhite.svg";
 import buttonarraowblue from "../assets/buttonarrowblue.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const EditQualification = () => {
   const navigate = useNavigate();
+
+  const { state } = useLocation();
+  const qualification = state?.qualification || { id: null, name: "", description: "" };
+
+  const [editedQualification, setEditedQualification] = useState({
+    id: qualification.id,
+    name: qualification.name,
+    description: qualification.description,
+  });
+
+  const handleChange = (e) => {
+    setEditedQualification({
+      ...editedQualification,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSave = () => {
+    navigate("/master", { state: { updatedQualification: editedQualification } });
+  };
 
   return (
     <div className="min-h-screen overflow-hidden flex flex-col">
@@ -89,9 +109,10 @@ const EditQualification = () => {
                 </label>
                 <input
                   type="text"
-                  id="qualification"
-                  placeholder="Type"
-                  className="w-[250px] h-[35px] px-4 py-2 border border-[#94BDEB] rounded-md focus:outline-none focus:ring-2 focus:ring-[#94BDEB] placeholder:text-[12px] placeholder:text-[#A8A8A8] "
+                  name="name"
+                  value={editedQualification.name}
+                  onChange={handleChange}
+                  className="w-[250px] h-[35px] px-4 py-2 border border-[#94BDEB] rounded-md focus:outline-none focus:ring-2 focus:ring-[#94BDEB] placeholder:text-[12px] placeholder:text-[#A8A8A8]"
                 />
               </div>
 
@@ -103,8 +124,9 @@ const EditQualification = () => {
                   Description
                 </label>
                 <textarea
-                  id="description"
-                  placeholder="Type"
+                  name="description"
+                  value={editedQualification.description}
+                  onChange={handleChange}
                   className="w-full h-[90px] px-4 py-2 border border-[#94BDEB] placeholder:text-[12px] placeholder:text-[#A8A8A8] rounded-md focus:outline-none"
                   rows="4"
                 />
@@ -112,7 +134,7 @@ const EditQualification = () => {
 
               {/* Save Button */}
               <div className="flex justify-end">
-                <button className="bg-[#173E88] text-white text-[16px] px-12 py-[3px] rounded-md hover:bg-blue-700 transition ">
+                <button onClick={handleSave} className="bg-[#173E88] text-white text-[16px] px-12 py-[3px] rounded-md hover:bg-blue-700 transition ">
                   Save
                 </button>
               </div>

@@ -15,6 +15,11 @@ import Inbox from "./components/Inbox";
 import Master from "./components/Master";
 import EditQualification from "./components/EditQualification";
 import AddQualification from "./components/AddQualification";
+import RoleManagement from "./components/RoleManagement";
+import LoginAuthorization from "./components/LoginAuthorization";
+import Counsellors from "./components/Counsellors";
+import Institutions from "./components/Institutions";
+import CounsellorProfile from "./components/CounsellorProfile";
 
 function App() {
   return (
@@ -37,6 +42,11 @@ function App() {
             <Route path="/master" element={<Master />} />
             <Route path="/editqualification" element={<EditQualification />} />
             <Route path="/addqualification" element={<AddQualification />} />
+            <Route path="/rolemanagement" element={<RoleManagement />} />
+            <Route path="/loginauthorization" element={<LoginAuthorization />} />
+            <Route path="/counsellors" element={<Counsellors />} />
+            <Route path="/institutions" element={<Institutions />} />
+            <Route path="/counsellorprofile" element={<CounsellorProfile />} />
           </Routes>
         </Router>
       </UserProvider>
