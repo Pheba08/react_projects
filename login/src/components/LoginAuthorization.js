@@ -144,7 +144,9 @@ const LoginAuthorization = () => {
                     className="flex justify-between items-center bg-white p-4 rounded-3xl shadow-md w-full text-black font-medium text-[14px] font-poppins"
                   >
                     {item}
-                    <button className="w-10 h-10 bg-[#173E88] rounded-full flex items-center justify-center hover:bg-[#0f2a5e] hover:scale-105 hover:shadow-lg">
+                    <button className="w-10 h-10 bg-[#173E88] rounded-full flex items-center justify-center hover:bg-[#0f2a5e] hover:scale-105 hover:shadow-lg"
+                    onClick={() => navigate("/institutionprofile")}
+                    >
                       <span className="text-white">
                         <img
                           src={ArrowRight}
