@@ -59,16 +59,29 @@ function App() {
             <Route path="/sidenavmaster" element={<SideNavMaster />} />
 
             <Route path="/master" element={<Master />} />
-            <Route path="language" element={<Language />} />
-            <Route path="gender" element={<Gender />} />
-            <Route path="grade" element={<Grade />} />
-            <Route path="subject" element={<Subject />} />
-            <Route path="topic" element={<Topic />} />
-            <Route path="category" element={<Category />} />
-            <Route path="rolemanagement" element={<RoleManagement />} />
-            <Route path="addqualification" element={<AddQualification />} />
+              <Route path="master/addqualification" element={<AddQualification />} />
+              <Route path="master/editqualification" element={<EditQualification />} />
 
-            <Route path="/editqualification" element={<EditQualification />} />
+            <Route path="language" element={<Language />} />
+              <Route path="language/editlanguage" element={<EditLanguage />} />
+            
+            <Route path="gender" element={<Gender />} />
+             <Route path="gender/editgender" element={<EditGender />} />
+
+            <Route path="grade" element={<Grade />} />
+            <Route path="grade/editgrade" element={<EditGrade />} />
+
+            <Route path="subject" element={<Subject />} />
+              <Route path="subject/editsubject" element={<Editsubject />} />
+
+            <Route path="topic" element={<Topic />} />
+              <Route path="topic/edittopic" element={<EditTopic />} />
+
+            <Route path="category" element={<Category />} />
+              <Route path="category/editcategory" element={<EditCategory />} />
+              
+            <Route path="rolemanagement" element={<RoleManagement />} />
+              <Route path="rolemanagement/editrole" element={<EditRole />} />
             
 
             <Route
@@ -78,14 +91,7 @@ function App() {
             <Route path="/counsellors" element={<Counsellors />} />
             <Route path="/institutions" element={<Institutions />} />
             <Route path="/counsellorprofile" element={<CounsellorProfile />} />
-
-            <Route path="/editrole" element={<EditRole />} />
-            <Route path="/editlanguage" element={<EditLanguage />} />
-            <Route path="/editgender" element={<EditGender />} />
-            <Route path="/editgrade" element={<EditGrade />} />
-            <Route path="/editsubject" element={<Editsubject />} />
-            <Route path="/edittopic" element={<EditTopic />} />
-            <Route path="/editcategory" element={<EditCategory />} />
+       
             <Route
               path="/institutionprofile"
               element={<InstitutionProfile />}

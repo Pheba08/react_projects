@@ -11,67 +11,48 @@ const AddQualification = () => {
   const handleCreate = () => {
     if (qualification.trim() && description.trim()) {
       const newQualification = {
-        id: Math.floor(Math.random() * 1000),
+        id: Date.now(), // Using Date.now() for unique ID
         name: qualification,
         description: description,
       };
-
+      
       navigate("/master", { state: { newQualification } });
+    } else {
+      alert("Please enter both qualification name and description.");
     }
   };
 
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
-      {/* Navbar with dynamic heading and no icons */}
       <NavMaster heading="Add Qualification" showIcons={false} />
-
-
-      {/* Side Navigation */}
       <div className="absolute top-[38px] left-0">
         <SideNavMaster />
       </div>
-
-      {/* Main Content */}
       <div className="ml-[200px] p-6 pt-[27px]">
-        {/* Form Container */}
         <div className="max-w-[990px] mx-auto bg-white rounded-3xl mt-14">
-          {/* Header Section */}
           <div className="bg-[#94BDEB] rounded-t-3xl">
             <h2 className="text-[14px] font-medium font-poppins text-black text-left px-6 py-2">
               Create Qualification
             </h2>
           </div>
-
-          {/* Form Section */}
           <div className="px-14 py-6">
-            {/* Qualification Name */}
             <div className="mb-6 text-left">
-              <label
-                htmlFor="qualification"
-                className="block text-[12px] font-medium text-[#030303] mb-1"
-              >
+              <label className="block text-[12px] font-medium text-[#030303] mb-1">
                 Qualification Name
               </label>
               <input
                 type="text"
-                id="qualification"
                 value={qualification}
                 onChange={(e) => setQualification(e.target.value)}
                 placeholder="Type"
                 className="w-[250px] h-[35px] px-4 py-2 border border-[#94BDEB] rounded-md focus:outline-none focus:ring-2 focus:ring-[#94BDEB] placeholder:text-[12px] placeholder:text-[#A8A8A8]"
               />
             </div>
-
-            {/* Description */}
             <div className="mb-6 text-left">
-              <label
-                htmlFor="description"
-                className="block text-[12px] font-medium text-[#030303] mb-1"
-              >
+              <label className="block text-[12px] font-medium text-[#030303] mb-1">
                 Description
               </label>
               <textarea
-                id="description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 placeholder="Type"
@@ -79,8 +60,6 @@ const AddQualification = () => {
                 rows="4"
               />
             </div>
-
-            {/* Create Button */}
             <div className="flex justify-end">
               <button
                 onClick={handleCreate}
@@ -97,6 +76,7 @@ const AddQualification = () => {
 };
 
 export default AddQualification;
+
 
 
 // import React, { useState } from "react";

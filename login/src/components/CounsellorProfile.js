@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import buttonarraowblue from "../assets/buttonarrowblue.svg";
 import propicOne from "../assets/propicOne.svg";
 
@@ -9,12 +9,11 @@ const CounsellorProfile = () => {
   const [reselling, setReselling] = useState(false);
   const [counselling, setCounselling] = useState(false);
   const [accountStatus, setAccountStatus] = useState(false);
-  const [permission, setPermission] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
+    <div className="min-h-screen bg-[#E9F3FC]">
       {/* Navbar */}
-      <nav>
+      <nav className="sticky top-0">
         <div className="bg-gradient-to-r from-[#173E88] to-[#5083CD] h-[38px]"></div>
         <div className="bg-white h-[38px] flex items-center justify-between px-2 md:px-3">
           <button
@@ -30,7 +29,8 @@ const CounsellorProfile = () => {
       {/* Main Content */}
       <div className="grid grid-cols-12 gap-8 p-8">
         {/* First Column (Profile Info) */}
-        <div className="col-span-3 bg-[#DFF0FF] p-5">
+
+        <div className="col-span-3 bg-[#DFF0FF] p-5 sticky top-0 h-full">
           <div className="text-left">
             <img
               src={propicOne}
@@ -76,12 +76,12 @@ const CounsellorProfile = () => {
           </h2>
           {/* Personal Details */}
           <div className="bg-[#F9F9F9] p-4 rounded-xl">
-            <h2 className="text-[14px] text-left font-semibold font-Poppins">
+            <h2 className="text-[16px] text-left font-semibold font-Poppins">
               Full name
             </h2>
 
             <div className="grid grid-cols-2 gap-5">
-              <div className="text-[8px] text-left mt-4 space-y-3">
+              <div className="text-[10px] text-left mt-4 space-y-3">
                 <p>Year of birth</p>
                 <p>Gender</p>
                 <p>Primary Contact Number</p>
@@ -89,11 +89,19 @@ const CounsellorProfile = () => {
                 <p>Language Proficiency</p>
                 <p>Email</p>
               </div>
-              <div className="text-[8px] text-left mt-4 space-y-3">
+              <div className="text-[10px] text-left mt-4 space-y-3">
                 <p>Address</p>
                 <p>Country</p>
                 <p>Educational Qualification</p>
-                <p>Certifications</p>
+                <p>
+                  Certifications:{" "}
+                  <Link
+                    to="/certificates"
+                    className="text-[10px] text-[#173E88] hover:underline"
+                  >
+                    view
+                  </Link>{" "}
+                </p>
                 <p>Specialization</p>
                 <p>Overall counselling experience</p>
               </div>
@@ -102,18 +110,18 @@ const CounsellorProfile = () => {
 
           {/* Banking Information */}
           <div className="bg-[#F9F9F9] p-5 rounded-xl">
-            <h2 className="text-[12px] text-left font-semibold font-Poppins">
+            <h2 className="text-[14px] text-left font-semibold font-Poppins">
               Banking Information
             </h2>
             <div className="grid grid-cols-2 gap-5">
-              <div className="text-[8px] text-left mt-4 space-y-3">
+              <div className="text-[10px] text-left mt-4 space-y-3">
                 <p>Account holder name</p>
                 <p>bank name</p>
                 <p>Bracnch</p>
                 <p>Account type</p>
                 <p>Contact number</p>
               </div>
-              <div className="text-[8px] text-left mt-4 space-y-3">
+              <div className="text-[10px] text-left mt-4 space-y-3">
                 <p>Account number / IBAN</p>
                 <p>IFSC</p>
                 <p>BIC/SWIFT code</p>
@@ -127,30 +135,22 @@ const CounsellorProfile = () => {
         <div className="col-span-3 space-y-5 mt-10">
           {/* Session Charge */}
           <div className="bg-white p-5 rounded-xl border border-[#173E88] text-left m-3">
-            <h2 className="text-[12px] text-[#173E88] font-semibold font-poppins ">
-              Add session charge <br />
-              and time duration
+            <h2 className="text-[18px] text-[#173E88] font-semibold font-poppins">
+              Profile verification
             </h2>
-
-            <label className="text-[10px] text-[#6D6B6B] block mt-3">
-              Session Charge
-            </label>
-            <div className="mt-3 space-x-2">
-              <span className="text-[14px] text-[#030303] font-semibold ">
-                ₹
-              </span>
-              <input
-                type="text"
-                className="w-[140px] h-[25px] p-2 border rounded border-[#94BDEB] mb-3"
-              />
-              <span className="text-[14px] text-[#030303] font-semibold">
-                / hr
-              </span>
+            <div className="flex gap-10 mt-4">
+              <button className="px-4 py-1 border border-[#173E88] text-[14px] text-[#173E88] font-semibold bg-white rounded">
+                Reject
+              </button>
+              <button className="px-4 py-1 bg-[#173E88] text-[14px] text-white font-semibold rounded">
+                Approve
+              </button>
             </div>
           </div>
 
-          {/* Account Status */}
+          {/* Account Status Container */}
           <div className="bg-white p-7 rounded-xl border border-[#173E88] text-left m-3">
+            {/* First Row: Reselling & Counselling */}
             <div className="grid grid-cols-2 gap-5">
               {/* Reselling */}
               <div>
@@ -163,7 +163,6 @@ const CounsellorProfile = () => {
                   }`}
                   onClick={() => setReselling(!reselling)}
                 >
-                  {/* Disable Text (Left Side) */}
                   <span
                     className={`absolute left-7 text-[9px] font-medium transition-all ${
                       reselling ? "opacity-0" : "opacity-100 text-[#E9F3FC]"
@@ -171,8 +170,6 @@ const CounsellorProfile = () => {
                   >
                     Disable
                   </span>
-
-                  {/* Enable Text (Right Side) */}
                   <span
                     className={`absolute right-7 text-[9px] font-medium transition-all ${
                       reselling ? "opacity-100 text-[#173E88]" : "opacity-0"
@@ -180,8 +177,6 @@ const CounsellorProfile = () => {
                   >
                     Enable
                   </span>
-
-                  {/* Toggle Circle */}
                   <div
                     className={`w-4 h-4 rounded-full shadow-md transform transition-all duration-300 ${
                       reselling ? "translate-x-9 bg-[#173E88]" : "bg-[#E9F3FC]"
@@ -201,7 +196,6 @@ const CounsellorProfile = () => {
                   }`}
                   onClick={() => setCounselling(!counselling)}
                 >
-                  {/* Disable Text (Left Side) */}
                   <span
                     className={`absolute left-7 text-[9px] font-medium transition-all ${
                       counselling ? "opacity-0" : "opacity-100 text-[#E9F3FC]"
@@ -209,8 +203,6 @@ const CounsellorProfile = () => {
                   >
                     Disable
                   </span>
-
-                  {/* Enable Text (Right Side) */}
                   <span
                     className={`absolute right-7 text-[9px] font-medium transition-all ${
                       counselling ? "opacity-100 text-[#173E88]" : "opacity-0"
@@ -218,8 +210,6 @@ const CounsellorProfile = () => {
                   >
                     Enable
                   </span>
-
-                  {/* Toggle Circle */}
                   <div
                     className={`w-4 h-4 rounded-full shadow-md transform transition-all duration-300 ${
                       counselling
@@ -229,84 +219,70 @@ const CounsellorProfile = () => {
                   ></div>
                 </button>
               </div>
+            </div>
 
-              {/* Account Status */}
-              <div>
-                <h3 className="text-[12px] text-[#173E88] font-poppins font-semibold">
-                  Account Status
-                </h3>
-                <button
-                  className={`w-16 h-6 rounded-full p-1 flex items-center mt-3 relative ${
-                    accountStatus ? "bg-[#E9F3FC]" : "bg-[#6D6B6B]"
-                  }`}
-                  onClick={() => setAccountStatus(!accountStatus)}
-                >
-                  {/* Disable Text (Left Side) */}
-                  <span
-                    className={`absolute left-7 text-[9px] font-medium transition-all ${
-                      accountStatus ? "opacity-0" : "opacity-100 text-[#E9F3FC]"
-                    }`}
-                  >
-                    Disable
-                  </span>
-
-                  {/* Enable Text (Right Side) */}
-                  <span
-                    className={`absolute right-7 text-[9px] font-medium transition-all ${
-                      accountStatus ? "opacity-100 text-[#173E88]" : "opacity-0"
-                    }`}
-                  >
-                    Enable
-                  </span>
-
-                  {/* Toggle Circle */}
-                  <div
-                    className={`w-4 h-4 rounded-full shadow-md transform transition-all duration-300 ${
-                      accountStatus
-                        ? "translate-x-9 bg-[#173E88]"
-                        : "bg-[#E9F3FC]"
-                    }`}
-                  ></div>
-                </button>
+            {/* Second Row: Add Session Charge */}
+            <div className="mt-3">
+              <h3 className="text-[12px] text-[#173E88] font-semibold">
+                Add Session Charge
+              </h3>
+              <div className="flex items-center mt-2 space-x-2">
+                <span className="text-[14px] text-[#030303] font-semibold">
+                  ₹
+                </span>
+                <input
+                  type="text"
+                  className="w-[135px] h-[25px] p-2 border rounded border-[#94BDEB]"
+                />
+                <span className="text-[14px] text-[#030303] font-semibold">
+                  / hr
+                </span>
               </div>
+            </div>
 
-              {/* Permission */}
-              <div>
-                <h3 className="text-[12px] text-[#173E88] font-poppins font-semibold">
-                  Permission
-                </h3>
-                <button
-                  className={`w-16 h-6 rounded-full p-1 flex items-center mt-3 relative ${
-                    permission ? "bg-[#E9F3FC]" : "bg-[#6D6B6B]"
+            {/* Third Row: Assign Role Button */}
+            <div className="mt-4">
+              <button className="px-4 py-1 bg-[#173E88] text-[12px] text-white w-full rounded-2xl">
+                Assign Role
+              </button>
+            </div>
+
+            {/* Line Break */}
+            <hr className="my-4 border-t border-[#173E88]" />
+
+            {/* Fourth Row: Account Status */}
+            <div className="flex justify-between items-center">
+              <h3 className="text-[12px] text-[#173E88] font-poppins font-semibold">
+                Account Status
+              </h3>
+              <button
+                className={`w-16 h-6 rounded-full p-1 flex items-center mt-1 relative ${
+                  accountStatus ? "bg-[#E9F3FC]" : "bg-[#6D6B6B]"
+                }`}
+                onClick={() => setAccountStatus(!accountStatus)}
+              >
+                <span
+                  className={`absolute left-6 text-[9px] font-medium transition-all ${
+                    accountStatus ? "opacity-0" : "opacity-100 text-[#E9F3FC]"
                   }`}
-                  onClick={() => setPermission(!permission)}
                 >
-                  {/* Disable Text (Left Side) */}
-                  <span
-                    className={`absolute left-7 text-[9px] font-medium transition-all ${
-                      permission ? "opacity-0" : "opacity-100 text-[#E9F3FC]"
-                    }`}
-                  >
-                    Disable
-                  </span>
-
-                  {/* Enable Text (Right Side) */}
-                  <span
-                    className={`absolute right-7 text-[9px] font-medium transition-all ${
-                      permission ? "opacity-100 text-[#173E88]" : "opacity-0"
-                    }`}
-                  >
-                    Enable
-                  </span>
-
-                  {/* Toggle Circle */}
-                  <div
-                    className={`w-4 h-4 rounded-full shadow-md transform transition-all duration-300 ${
-                      permission ? "translate-x-9 bg-[#173E88]" : "bg-[#E9F3FC]"
-                    }`}
-                  ></div>
-                </button>
-              </div>
+                  Inactive
+                </span>
+                <span
+                  className={`absolute right-7 text-[9px] font-medium transition-all ${
+                    accountStatus ? "opacity-100 text-[#173E88]" : "opacity-0"
+                  }`}
+                >
+                  Active
+                </span>
+                <div
+                  className={`w-4 h-4 rounded-full shadow-md transform transition-all duration-300 ${
+                    accountStatus
+                      ? "translate-x-9 bg-[#173E88]"
+                      : "bg-[#E9F3FC]"
+                  }`}
+                ></div>
+              </button>
             </div>
           </div>
         </div>

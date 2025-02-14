@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+
 import adminlogoWhite from "../assets/adminlogoWhite.svg";
 
 const menuItems = [
@@ -14,6 +15,8 @@ const menuItems = [
 ];
 
 const SideNavMaster = () => {
+  const location = useLocation();
+
   return (
     <div className="flex p-[2px] ">
       {/* Sidebar */}
@@ -38,7 +41,9 @@ const SideNavMaster = () => {
                     to={item.path}
                     className={({ isActive }) =>
                       `text-[12px] cursor-pointer px-4 py-[5px] before:content-['-'] before:mr-[18px] transition-all rounded-l-2xl w-full block ${
-                        isActive ? "bg-[#94BDEB] text-[#173E88]" : "hover:bg-[#94BDEB] hover:text-[#173E88]"
+                        location.pathname.startsWith(item.path)
+                          ? "bg-[#94BDEB] text-[#173E88]"
+                          : "hover:bg-[#94BDEB] hover:text-[#173E88]"
                       }`
                     }
                   >
@@ -60,10 +65,6 @@ const SideNavMaster = () => {
 };
 
 export default SideNavMaster;
-
-
-
-
 
 // import React from "react";
 // import adminlogoWhite from "../assets/adminlogoWhite.svg";

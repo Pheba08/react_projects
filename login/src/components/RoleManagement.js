@@ -96,7 +96,7 @@ const RoleManagement = () => {
                         src={EditButton}
                         alt="Edit"
                         className="w-3 h-3 mx-auto"
-                        onClick={() => navigate("/EditRole", { state: { role } })}
+                        onClick={() => navigate("EditRole", { state: { role } })}
                       />
                     </td>
                     <td className="px-4 py-2 text-center w-[5%] cursor-pointer">

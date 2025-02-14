@@ -25,13 +25,21 @@ const Master = () => {
         ...prevQualifications,
         location.state.newQualification,
       ]);
+      navigate("/master", { replace: true, state: {} });
+    }
 
-      // Clear the navigation state to prevent duplicate entries on reload
+    if (location.state?.updatedQualification) {
+      setQualifications((prevQualifications) =>
+        prevQualifications.map((qualification) =>
+          qualification.id === location.state.updatedQualification.id
+            ? location.state.updatedQualification
+            : qualification
+        )
+      );
       navigate("/master", { replace: true, state: {} });
     }
   }, [location.state, navigate]);
 
-  // Function to handle delete
   const handleDelete = (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this qualification?");
     if (confirmed) {
@@ -43,37 +51,26 @@ const Master = () => {
 
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
-      {/* Navbar */}
       <NavMaster />
-
-      {/* SideNavMaster */}
       <div className="absolute top-[38px] left-0 ">
         <SideNavMaster />
       </div>
-
-      {/* Main Content Area */}
       <div className="ml-[200px] p-6 pt-[27px]">
-        {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-[20px] font-poppins">Qualification</h1>
           <button
-            onClick={() => navigate("/AddQualification")}
+            onClick={() => navigate("AddQualification")}
             className="text-[13px] text-white font-nunito bg-[#173E88] px-4 py-1 rounded-md hover:bg-[#0F2C64] transition-all"
           >
             Add Qualification
           </button>
         </div>
-
-        {/* Table Container */}
         <div className="max-w-[990px] mx-auto bg-white rounded-3xl mt-6">
-          {/* Header Section */}
           <div className="bg-[#94BDEB] rounded-t-3xl">
             <h2 className="text-[14px] font-medium font-poppins text-black text-left px-6 py-2">
               Language management master
             </h2>
           </div>
-
-          {/* Table */}
           <div className="overflow-x-auto p-1">
             <table className="w-full border-collapse">
               <thead>
@@ -97,7 +94,7 @@ const Master = () => {
                         src={EditButton}
                         alt="Edit"
                         className="w-3 h-3 mx-auto"
-                        onClick={() => navigate("/EditQualification", { state: { qualification } })}
+                        onClick={() => navigate("EditQualification", { state: { qualification } })}
                       />
                     </td>
                     <td className="px-4 py-2 text-center w-[5%] cursor-pointer">
@@ -114,7 +111,6 @@ const Master = () => {
             </table>
           </div>
         </div>
-
       </div>
     </div>
   );
