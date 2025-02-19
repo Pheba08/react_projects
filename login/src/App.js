@@ -1,8 +1,8 @@
 import "./App.css";
-import LoginPage from "./components/LoginPage";
-import ForgotPassword from "./components/ForgotPassword";
-import CheckEmail from "./components/CheckEmail";
-import CreatePassword from "./components/CreatePassword";
+import LoginPage from "./components/Loginpage";
+import ForgotPassword from "./components/Forgotpassword";
+import CheckEmail from "./components/Checkemail";
+import CreatePassword from "./components/Createpassword";
 import DummyHome from "./components/DummyHome";
 import HomePage from "./components/HomePage";
 
@@ -37,6 +37,11 @@ import InstitutionProfile from "./components/InstitutionProfile";
 import Certificates from "./components/Certificates";
 import NavMaster from "./components/NavMaster";
 import SideNavMaster from "./components/SideNavMaster";
+import QuestionCreation from "./components/QuestionCreation";
+import QuestionList from "./components/QuestionList";
+import RejectedQuestion from "./components/RejectedQuestion";
+import EditQuestion from "./components/EditQuestion";
+import QuestionReview from "./components/QuestionReview";
 
 function App() {
   return (
@@ -97,6 +102,13 @@ function App() {
               element={<InstitutionProfile />}
             />
             <Route path="/certificates" element={<Certificates />} />
+
+            <Route path="/questioncreation" element={<QuestionCreation />} />
+              <Route path="questionlist" element={<QuestionList />} />
+              <Route path="rejectedquestion" element={<RejectedQuestion />} />
+              <Route path="/editquestion" element={<EditQuestion />} />
+            
+            <Route path="/questionreview" element={<QuestionReview />} />
           </Routes>
         </Router>
       </UserProvider>

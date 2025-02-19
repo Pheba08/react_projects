@@ -133,6 +133,16 @@ const HomePage = () => {
       navigate("/master");
     } else if (selectedTile === "login Authorization") {
       navigate("/loginauthorization");
+    } else if (selectedTile === "question creation") {
+      navigate("/questioncreation");
+    } else if (selectedTile === "question bank review") {
+      navigate("/questionreview");
+    } else if (selectedTile === "valuation") {
+      navigate("/valuation");
+    } else if (selectedTile === "pack management") {
+      navigate("/packmanagement");
+    } else if (selectedTile === "collection view") {
+      navigate("/collectionview");
     }
   };
 
@@ -218,17 +228,15 @@ const HomePage = () => {
             {/* Master Data Management */}
             <div
               className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
-          ${
-            selectedTile === "master data management"
-              ? "border-[#173E88]"
-              : "border-[#3D75DF33]"
-          } 
+          ${selectedTile === "master data management"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
           rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
-          ${
-            isTileEnabled("master data management")
-              ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-              : "opacity-50 pointer-events-none"
-          }`}
+          ${isTileEnabled("master data management")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
               onClick={() => handleTileClick("master data management")}
             >
               <p className="text-center text-[10px] text-black font-medium">
@@ -244,17 +252,15 @@ const HomePage = () => {
             {/* Login Authorization */}
             <div
               className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
-    ${
-      selectedTile === "login Authorization"
-        ? "border-[#173E88]"
-        : "border-[#3D75DF33]"
-    } 
+    ${selectedTile === "login Authorization"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
     rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
-    ${
-      isTileEnabled("login Authorization")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+    ${isTileEnabled("login Authorization")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
               onClick={() => handleTileClick("login Authorization")}
             >
               <p className="text-center text-[10px] text-black font-medium">
@@ -269,12 +275,17 @@ const HomePage = () => {
 
             {/* Question Creation */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
-    ${
-      isTileEnabled("question creation")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+    ${selectedTile === "question creation"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
+    rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
+    ${isTileEnabled("question creation")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
+              onClick={() => handleTileClick("question creation")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Question creation
@@ -286,14 +297,20 @@ const HomePage = () => {
               />
             </div>
 
+
             {/* Question Bank Review */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
-    ${
-      isTileEnabled("question bank review")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+    ${selectedTile === "question bank review"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
+    rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
+    ${isTileEnabled("question bank review")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
+              onClick={() => handleTileClick("question bank review")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Question bank review
@@ -307,12 +324,17 @@ const HomePage = () => {
 
             {/* Valuation */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
-    ${
-      isTileEnabled("valuation")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+  ${selectedTile === "valuation"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
+  rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
+  ${isTileEnabled("valuation")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
+              onClick={() => handleTileClick("valuation")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Valuation
@@ -326,12 +348,17 @@ const HomePage = () => {
 
             {/* Pack Management */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
-    ${
-      isTileEnabled("pack management")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+    ${selectedTile === "pack management"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
+    rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
+    ${isTileEnabled("pack management")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
+              onClick={() => handleTileClick("pack management")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Pack management
@@ -345,12 +372,17 @@ const HomePage = () => {
 
             {/* Collection View */}
             <div
-              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] border-[#3D75DF33] rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] 
-    ${
-      isTileEnabled("collection view")
-        ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
-        : "opacity-50 pointer-events-none"
-    }`}
+              className={`p-4 items-center w-[175px] h-[185px] bg-gradient-to-t from-[rgba(80,131,205,0.3)] to-[rgba(80,131,205,0.05)] border-[2px] 
+    ${selectedTile === "collection view"
+                  ? "border-[#173E88]"
+                  : "border-[#3D75DF33]"
+                } 
+    rounded-[25px] shadow-[0px_4px_4px_0px_#00000040] cursor-pointer 
+    ${isTileEnabled("collection view")
+                  ? "hover:border-[#173E88] hover:transform hover:translate-y-[-5px] transition-all duration-300"
+                  : "opacity-50 pointer-events-none"
+                }`}
+              onClick={() => handleTileClick("collection view")}
             >
               <p className="text-center text-[10px] text-black font-medium">
                 Collection view
