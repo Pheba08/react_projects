@@ -32,7 +32,7 @@ const CreatePassword = () => {
       </button>
 
       {/* main div */}
-      <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row lg:justify-between ">
+      <div className="bg-[#E9F3FC] w-full h-full flex flex-col md:flex-row ">
         {/* left section-login form */}
         <div className=" w-1/2">
           {/* logo */}
@@ -115,23 +115,14 @@ const CreatePassword = () => {
         </div>
 
         {/* Right Section - Illustration */}
-        <div className="h-full flex items-center">
-        <img
-          src={createpword}
-          alt="Illustration"
-          className="w-full h-[597px] pr-[90px] lg:pt-0 sm:pt-24"
-        />
-      </div>
-        
-        
-        
-        {/* <div className="h-full">
+        <div className="min-h-screen flex justify-center items-center">
           <img
             src={createpword}
-            alt="Create password Illustration"
-            className="max-w-full h-[597px] max-w-[90%] max-h-[100%] pr-[90px]"
+            alt="Illustration"
+            className="w-full h-screen pr-[90px] lg:pt-0 sm:pt-24"
           />
-        </div> */}
+        </div>
+
       </div>
     </div>
   );

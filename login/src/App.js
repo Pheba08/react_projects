@@ -1,13 +1,11 @@
 import "./App.css";
 import LoginPage from "./components/Loginpage";
-import ForgotPassword from "./components/Forgotpassword";
-import CheckEmail from "./components/Checkemail";
-import CreatePassword from "./components/Createpassword";
+import ForgotPassword from "./components/ForgotPassword";
+import CheckEmail from "./components/CheckEmail";
+import CreatePassword from "./components/CreatePassword";
 import DummyHome from "./components/DummyHome";
 import HomePage from "./components/HomePage";
-
 import Profile from "./components/Profile";
-
 import EditProfile from "./components/EditProfile";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { UserProvider } from "./context/UserContext";
@@ -42,6 +40,11 @@ import QuestionList from "./components/QuestionList";
 import RejectedQuestion from "./components/RejectedQuestion";
 import EditQuestion from "./components/EditQuestion";
 import QuestionReview from "./components/QuestionReview";
+import ApprovedQuestions from "./components/ApprovedQuestions";
+import HomePageUi from "./components/HomepageUi";
+import PackManagementNo from "./components/PackManagementNo";
+import PackManagementHome from "./components/PackManagementHome";
+import JuniorPack from "./components/JuniorPack";
 
 function App() {
   return (
@@ -109,6 +112,16 @@ function App() {
               <Route path="/editquestion" element={<EditQuestion />} />
             
             <Route path="/questionreview" element={<QuestionReview />} />
+              <Route path="approvedquestions" element={<ApprovedQuestions />} />
+
+              <Route path="/homepageui" element={<HomePageUi />} />
+
+            <Route path="/packmanagementno" element={<PackManagementNo />} />
+            <Route path="/packmanagementhome" element={<PackManagementHome />} />
+
+            <Route path="/juniorpack" element={<JuniorPack />} />
+
+
           </Routes>
         </Router>
       </UserProvider>

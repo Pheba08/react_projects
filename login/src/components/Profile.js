@@ -52,7 +52,7 @@ const Profile = () => {
           </button>
 
           {/* Right-side buttons */}
-          <div className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[766px]">
+          <div className="flex items-center gap-3 mx-[10px] sm:mx-[20px] md:mx-[180px] lg:mx-[870px]">
             {/* Chose your role */}
             <button
             onClick={handleRole}
@@ -107,76 +107,76 @@ const Profile = () => {
       </nav>
 
 
-      <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-5 pl-10 pr-10">
+      <div className="max-w-[1230px] mx-auto bg-white rounded-lg p-6 mt-5 pl-10 pr-10">
         {/* Profile Details */}
         <div className="mb-4">
-          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+          <h2 className="text-[14px] font-semibold mb-3 text-left text-[#173E88]">
             Profile Details
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-left">
             {/* First Column */}
             <div className="grid grid-cols-1 items-start">
-              <p className="text-[9px] text-[#A8A8A8] font-nunito">Full Name</p>
-              <p className="text-[9px]">{userData.name}</p>
+              <p className="text-[12px] text-[#A8A8A8] font-nunito">Full Name</p>
+              <p className="text-[12px]">{userData.name}</p>
 
-              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+              <p className="text-[12px] text-[#A8A8A8] font-nunito mt-2">
                 Year of Birth
               </p>
-              <p className="text-[9px]">{userData.birthYear}</p>
+              <p className="text-[12px]">{userData.birthYear}</p>
 
-              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+              <p className="text-[12px] text-[#A8A8A8] font-nunito mt-2">
                 Gender
               </p>
-              <p className="text-[9px]">{userData.gender}</p>
+              <p className="text-[12px]">{userData.gender}</p>
 
-              <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+              <p className="text-[12px] text-[#A8A8A8] font-nunito mt-2">
                 Language
               </p>
-              <p className="text-[9px]">{userData.language}</p>
+              <p className="text-[12px]">{userData.language}</p>
             </div>
 
             {/* Second Column */}
             <div className="grid grid-cols-1 place-items-center ">
               <div className="text-left">
-                <p className="text-[9px] text-[#A8A8A8] font-nunito">
+                <p className="text-[12px] text-[#A8A8A8] font-nunito">
                   Primary Contact Number
                 </p>
-                <p className="text-[9px]">{userData.primaryContact}</p>
+                <p className="text-[12px]">{userData.primaryContact}</p>
 
-                <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                <p className="text-[12px] text-[#A8A8A8] font-nunito mt-2">
                   Secondary Contact Number
                 </p>
-                <p className="text-[9px]">{userData.secondaryContact}</p>
+                <p className="text-[12px]">{userData.secondaryContact}</p>
 
-                <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                <p className="text-[12px] text-[#A8A8A8] font-nunito mt-2">
                   Email
                 </p>
-                <p className="text-[9px]">{userData.email}</p>
+                <p className="text-[12px]">{userData.email}</p>
 
-                <p className="text-[9px] text-[#A8A8A8] font-nunito mt-2">
+                <p className="text-[12px] text-[#A8A8A8] font-nunito mt-2">
                   Country
                 </p>
-                <p className="text-[9px]">{userData.country}</p>
+                <p className="text-[12px]">{userData.country}</p>
               </div>
             </div>
 
             {/* Third Column */}
             <div className="grid grid-cols-1 place-items-end">
               <div className="text-left">
-                <p className="text-[9px] text-[#A8A8A8] font-nunito">Address</p>
-                <p className="text-[9px]">{userData.address}</p>
+                <p className="text-[12px] text-[#A8A8A8] font-nunito">Address</p>
+                <p className="text-[12px]">{userData.address}</p>
                 {/* sl no */}
-                <p className="text-[9px] text-[#173E88] font-nunito pt-4 font-medium font-poppins">
+                <p className="text-[12px] text-[#173E88] font-nunito pt-4 font-medium font-poppins">
                   SL No
                 </p>
                 <div className="w-[78px] h-[18px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded flex justify-items-end gap-[72px] items-center">
-                  <p className="text-[9px] text-black pl-2">{userData.slNo}</p>
+                  <p className="text-[12px] text-black pl-2">{userData.slNo}</p>
                 </div>
 
                 {/* Certificate Upload Section */}
                 <div className="w-[200px] h-[26px] mt-4 p-2 bg-[#94BDEB80] border-[1px] border-[#94BDEB] rounded-md flex justify-items-end gap-[72px] items-center">
-                  <p className="text-[9px] text-black pl-2">Certifications</p>
+                  <p className="text-[12px] text-black pl-2">Certifications</p>
                   <button className="bg-[#173E88] text-white text-[9px] px-5 py-[6px] rounded-md items-end">
                     View
                   </button>
@@ -201,10 +201,10 @@ const Profile = () => {
 
         {/* Role Managed */}
         <div className="mb-4">
-          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+          <h2 className="text-[14px] font-semibold mb-3 text-left text-[#173E88]">
             Role Managed
           </h2>
-          <div className="flex items-center text-[10px]">
+          <div className="flex items-center text-[12px]">
             <input
               type="checkbox"
               id="packManagement"
@@ -223,10 +223,10 @@ const Profile = () => {
 
         {/* Request Role */}
         <div>
-          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+          <h2 className="text-[14px] font-semibold mb-3 text-left text-[#173E88]">
             Request Role
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-[9px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-[12px]">
             {[
               "Pack management",
               "Master data management",

@@ -51,11 +51,11 @@ const CheckEmail = () => {
           </span>
         </p>
       </div>
-      <div className="h-full flex items-center">
+      <div className="min-h-screen flex justify-center items-center">
         <img
           src={checkmail}
           alt="Illustration"
-          className="w-full h-[597px] pr-[90px] lg:pt-0 sm:pt-20"
+          className="w-full h-screen pr-[90px] lg:pt-0 sm:pt-20"
         />
       </div>
     </div>

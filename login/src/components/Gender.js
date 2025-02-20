@@ -60,7 +60,7 @@ const Gender = () => {
         </div>
 
         {/* Table Container */}
-        <div className="max-w-[990px] mx-auto bg-white rounded-3xl mt-6">
+        <div className="max-w-[1130px] mx-auto bg-white rounded-3xl mt-6">
           {/* Header Section */}
           <div className="bg-[#94BDEB] rounded-t-3xl">
             <h2 className="text-[14px] font-medium font-poppins text-black text-left px-6 py-2">
@@ -85,7 +85,7 @@ const Gender = () => {
                     key={gender.id}
                     className={index !== genders.length - 1 ? "border-b border-[#94BDEB]" : ""}
                   >
-                    <td className="px-4 py-2 text-left text-[12px] text-black font-poppins">{gender.name}</td>
+                    <td className="px-4 py-2 text-left w-[20%] text-[12px] text-black font-poppins">{gender.name}</td>
                     <td className="px-4 py-2 text-left text-[12px] text-[#6D6B6B] font-poppins">{gender.description}</td>
                     <td className="px-4 py-2 text-center w-[5%] cursor-pointer">
                       <img

@@ -124,13 +124,13 @@ const LoginPage = () => {
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] text-left pt-1 pl-12">
+        <h1 className="text-xl sm:text-xl md:text-xl lg:text-3xl font-bold font-family-poppins text-[#000000] text-left pt-2 pl-12">
           Hello, <br />
           Welcome to Skills Connect
         </h1>
 
         <form className="space-y-6 pl-12" onSubmit={handleSubmit}>
-          <div className="space-y-1 pt-8">
+          <div className="space-y-1 pt-14">
             <label className="block text-sm font-nunito text-#030303 text-justify pl-3">
               User Name
             </label>

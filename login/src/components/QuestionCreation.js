@@ -155,7 +155,7 @@ const QuestionCreation = () => {
                       <div className="w-16 h-16 bg-[#E9F3FC] border border-[#94BDEB] flex items-center justify-center rounded-md">
                         <img src={imageIcon} alt="Icon" className="w-4 h-4" />
                       </div>
-                      <button className="absolute top-[-5px] right-[-5px]">
+                      <button className="absolute top-[-1px] right-[-24px]">
                         <img src={closeButton} alt="Close" className="w-3 h-3" />
                       </button>
                     </div>
@@ -179,7 +179,7 @@ const QuestionCreation = () => {
                       {/* Image Upload Box with Close Button */}
                       <div className="relative mt-2">
                         <div className="w-[100px] h-[90px] bg-[#E9F3FC] border border-[#94BDEB] flex items-center justify-center rounded-md"></div>
-                        <button className="absolute top-[4px] left-36">
+                        <button className="absolute top-[4px] left-28">
                           <img src={closeButton} alt="Close" className="w-3 h-3" />
                         </button>
                       </div>

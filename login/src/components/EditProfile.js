@@ -58,7 +58,7 @@ const EditProfile = () => {
         </div>
       </nav>
 
-      <div className="max-w-6xl mx-auto bg-white rounded-lg p-6 mt-10">
+      <div className="max-w-[1230px] mx-auto bg-white rounded-lg p-6 mt-10">
         {/* Profile Header */}
         <div className="flex justify-between items-center mb-4">
           <p className="text-[10px] font-semibold text-[#173E88]">Sl No: 001</p>
@@ -69,7 +69,7 @@ const EditProfile = () => {
 
         {/* Administrator details */}
         <div className="mb-4 p-4">
-          <h2 className="text-[11px] font-semibold mb-3 text-left text-[#173E88]">
+          <h2 className="text-[14px] font-semibold mb-3 text-left text-[#173E88]">
             Administrator details
           </h2>
 
@@ -77,7 +77,7 @@ const EditProfile = () => {
             {/* First Column (Left Aligned) */}
             <div className="grid grid-cols-1 items-start">
               <div className="mb-1">
-                <p className="pl-2 text-[9px] text-black font-nunito text-left">
+                <p className="pl-2 text-[12px] text-black font-nunito text-left">
                   Full Name
                 </p>
                 <input
@@ -86,13 +86,13 @@ const EditProfile = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 />
               </div>
 
 
               <div className="mb-1">
-                <p className="pl-2 text-[9px] text-black font-nunito mt-2 text-left">
+                <p className="pl-2 text-[12px] text-black font-nunito mt-2 text-left">
                   Year of Birth
                 </p>
                 <input
@@ -101,19 +101,19 @@ const EditProfile = () => {
                   name="birthYear"
                   value={formData.birthYear}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 />
               </div>
 
               <div className="mb-1">
-                <p className="pl-2 text-[9px] text-black font-nunito mt-2 text-left">
+                <p className="pl-2 text-[12px] text-black font-nunito mt-2 text-left">
                   Gender
                 </p>
                 <select
                   name="gender"
                   value={formData.gender}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md text-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 pt-0 text-[10px] border-[#94BDEB] rounded-md text-[#A8A8A8]"
                 >
                   <option value="" disabled className="text-[#A8A8A8]">
                     Gender
@@ -125,14 +125,14 @@ const EditProfile = () => {
               </div>
 
               <div className="mb-1">
-                <p className="pl-2 text-[9px] text-black font-nunito mt-2 text-left">
+                <p className="pl-2 text-[12px] text-black font-nunito mt-2 text-left">
                   Language Proficiency
                 </p>
                 <select
                   name="language"
                   value={formData.language}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md text-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 pt-0 text-[10px] border-[#94BDEB] rounded-md text-[#A8A8A8]"
                 >
                   <option value="" disabled selected className="text-[#A8A8A8]">
                     Language
@@ -148,7 +148,7 @@ const EditProfile = () => {
             {/* Second Column (Center Aligned) */}
             <div className="grid grid-cols-1 place-items-center">
               <div className="w-[240px] mb-4">
-                <p className="text-[9px] text-black font-nunito text-left pl-2">
+                <p className="text-[12px] text-black font-nunito text-left pl-2">
                   Primary Contact Number
                 </p>
                 <input
@@ -157,12 +157,12 @@ const EditProfile = () => {
                   name="primaryContact"
                   value={formData.primaryContact}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 pt-0 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 />
               </div>
 
               <div className="w-[240px] mb-4">
-                <p className="text-[9px] text-black font-nunito text-left pl-2">
+                <p className="text-[12px] text-black font-nunito text-left pl-2">
                   Secondary Contact Number
                 </p>
                 <input
@@ -171,12 +171,12 @@ const EditProfile = () => {
                   name="secondaryContact"
                   value={formData.secondaryContact}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 />
               </div>
 
               <div className="w-[240px] mb-4">
-                <p className="text-[9px] text-black font-nunito text-left pl-2">
+                <p className="text-[12px] text-black font-nunito text-left pl-2">
                   Email
                 </p>
                 <input
@@ -185,12 +185,12 @@ const EditProfile = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 />
               </div>
 
               <div className="w-[240px] mb-1">
-                <p className="text-[9px] text-black font-nunito text-left pl-2">
+                <p className="text-[12px] text-black font-nunito text-left pl-2">
                   Country
                 </p>
                 <input
@@ -199,7 +199,7 @@ const EditProfile = () => {
                   name="country"
                   value={formData.country}
                   onChange={handleChange}
-                  className="w-[240px] h-[30px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-[240px] h-[30px] p-2 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 />
               </div>
             </div>
@@ -207,7 +207,7 @@ const EditProfile = () => {
             {/* Third Column (Right Aligned) */}
             <div className="grid grid-cols-1 place-items-end">
               <div className="w-[240px] mb-1">
-                <p className="text-[9px] text-black font-nunito text-left pl-2">
+                <p className="text-[12px] text-black font-nunito text-left pl-2">
                   Address
                 </p>
                 <textarea
@@ -215,7 +215,7 @@ const EditProfile = () => {
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
-                  className="w-full h-[130px] p-2 text-[9px] border-[#94BDEB] rounded-md placeholder-[#A8A8A8]"
+                  className="w-full h-[130px] p-2 text-[10px] border-[#94BDEB] rounded-md placeholder text-[#A8A8A8]"
                 ></textarea>
               </div>
 

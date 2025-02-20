@@ -74,7 +74,7 @@ const ForgotPassword = () => {
         <button
           type="button"
           onClick={handleForgotPassword}
-          className="mt-10 ml-12 w-[280px] h-[35px] bg-[#173E88] text-white rounded-md text-[10px] font-nunito float-left"
+          className="mt-40 ml-12 w-[280px] h-[35px] bg-[#173E88] text-white rounded-md text-[10px] font-nunito flex items-center justify-center"
         >
           Forget Password
         </button>
@@ -83,7 +83,7 @@ const ForgotPassword = () => {
         <img
           src={Forgotpword}
           alt="Illustration"
-          className="w-full h-[597px] pr-[90px] lg:pt-0 sm:pt-20"
+          className="w-full h-screen pr-[90px] lg:pt-0 sm:pt-20"
         />
       </div>
     </div>
