@@ -120,7 +120,7 @@ const LoginAuthorization = () => {
                   {item}
                   <button
                     className="w-10 h-10 bg-[#173E88] rounded-full flex items-center justify-center hover:bg-[#0f2a5e] hover:scale-105 hover:shadow-lg"
-                    onClick={() => navigate("/counsellorprofile")} // Adjust the route as needed
+                    onClick={() => navigate("/counsellorprofile")} 
                   >
                     <span className="text-white">
                       <img

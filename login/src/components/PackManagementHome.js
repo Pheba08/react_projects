@@ -19,13 +19,16 @@ const PackManagementHome = () => {
     };
 
     const handleJunior = () => {
-        navigate("/juniorpack");
+        navigate("/createdjuniorpack");
     };
 
     const handleSenior = () => {
-        navigate("/homepage");
+        navigate("/createdseniorpack");
     };
 
+    const handleCreatePack = () => {
+        navigate("/createpack");
+    };
 
     return (
         <div className="min-h-screen overflow-hidden flex flex-col">
@@ -138,7 +141,7 @@ const PackManagementHome = () => {
                         {/* Create Pack Button (Moved to the Right) */}
                         <div className="ml-auto mb-20">
                             <button
-                                // onClick={handleCreatePack}
+                                onClick={handleCreatePack}
                                 className="bg-[#173E88] text-white px-4 py-2 rounded-3xl hover:bg-[#0f2d5c]"
                             >
                                 Create new pack

@@ -14,7 +14,6 @@ import FilterIcon from "../assets/FilterIcon.svg";
 import DropDown from "../assets/DropDown.svg";
 import ApprovedQuestions from "./ApprovedQuestions";
 
-
 const QuestionReview = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -44,7 +44,16 @@ import ApprovedQuestions from "./components/ApprovedQuestions";
 import HomePageUi from "./components/HomepageUi";
 import PackManagementNo from "./components/PackManagementNo";
 import PackManagementHome from "./components/PackManagementHome";
-import JuniorPack from "./components/JuniorPack";
+import CreatedJuniorPack from "./components/CreatedJuniorPack";
+import CreatedSeniorPack from "./components/CreatedSeniorPack";
+import EditJuniorPack from "./components/EditJuniorPack";
+
+import JuniorApprovedQuestions from "./components/JuniorApprovedQuestions";
+import EditSeniorPack from "./components/EditSeniorPack";
+import SeniorApprovedQuestions from "./components/SeniorApprovedQuestions";
+import CreatePack from "./components/CreatePack";
+import SelectedPack from "./components/SelectedPack";
+
 
 function App() {
   return (
@@ -67,30 +76,30 @@ function App() {
             <Route path="/sidenavmaster" element={<SideNavMaster />} />
 
             <Route path="/master" element={<Master />} />
-              <Route path="master/addqualification" element={<AddQualification />} />
-              <Route path="master/editqualification" element={<EditQualification />} />
+            <Route path="master/addqualification" element={<AddQualification />} />
+            <Route path="master/editqualification" element={<EditQualification />} />
 
             <Route path="language" element={<Language />} />
-              <Route path="language/editlanguage" element={<EditLanguage />} />
-            
+            <Route path="language/editlanguage" element={<EditLanguage />} />
+
             <Route path="gender" element={<Gender />} />
-             <Route path="gender/editgender" element={<EditGender />} />
+            <Route path="gender/editgender" element={<EditGender />} />
 
             <Route path="grade" element={<Grade />} />
             <Route path="grade/editgrade" element={<EditGrade />} />
 
             <Route path="subject" element={<Subject />} />
-              <Route path="subject/editsubject" element={<Editsubject />} />
+            <Route path="subject/editsubject" element={<Editsubject />} />
 
             <Route path="topic" element={<Topic />} />
-              <Route path="topic/edittopic" element={<EditTopic />} />
+            <Route path="topic/edittopic" element={<EditTopic />} />
 
             <Route path="category" element={<Category />} />
-              <Route path="category/editcategory" element={<EditCategory />} />
-              
+            <Route path="category/editcategory" element={<EditCategory />} />
+
             <Route path="rolemanagement" element={<RoleManagement />} />
-              <Route path="rolemanagement/editrole" element={<EditRole />} />
-            
+            <Route path="rolemanagement/editrole" element={<EditRole />} />
+
 
             <Route
               path="/loginauthorization"
@@ -99,7 +108,7 @@ function App() {
             <Route path="/counsellors" element={<Counsellors />} />
             <Route path="/institutions" element={<Institutions />} />
             <Route path="/counsellorprofile" element={<CounsellorProfile />} />
-       
+
             <Route
               path="/institutionprofile"
               element={<InstitutionProfile />}
@@ -107,20 +116,28 @@ function App() {
             <Route path="/certificates" element={<Certificates />} />
 
             <Route path="/questioncreation" element={<QuestionCreation />} />
-              <Route path="questionlist" element={<QuestionList />} />
-              <Route path="rejectedquestion" element={<RejectedQuestion />} />
-              <Route path="/editquestion" element={<EditQuestion />} />
-            
-            <Route path="/questionreview" element={<QuestionReview />} />
-              <Route path="approvedquestions" element={<ApprovedQuestions />} />
+            <Route path="questionlist" element={<QuestionList />} />
+            <Route path="rejectedquestion" element={<RejectedQuestion />} />
+            <Route path="/editquestion" element={<EditQuestion />} />
 
-              <Route path="/homepageui" element={<HomePageUi />} />
+            <Route path="/questionreview" element={<QuestionReview />} />
+            <Route path="approvedquestions" element={<ApprovedQuestions />} />
+
+            <Route path="/homepageui" element={<HomePageUi />} />
 
             <Route path="/packmanagementno" element={<PackManagementNo />} />
             <Route path="/packmanagementhome" element={<PackManagementHome />} />
+            <Route path="/createpack" element={<CreatePack />} />
+            <Route path="selectedpack" element={<SelectedPack />} />
 
-            <Route path="/juniorpack" element={<JuniorPack />} />
+            <Route path="/createdjuniorpack" element={<CreatedJuniorPack />} />
+            <Route path="/createdseniorpack" element={<CreatedSeniorPack />} />
 
+            <Route path="/editjuniorpack" element={<EditJuniorPack />} />
+            <Route path="juniorpackapprovedquestions" element={<JuniorApprovedQuestions />} />
+
+            <Route path="/editseniorpack" element={<EditSeniorPack />} />
+            <Route path="seniorpackapprovedquestions" element={<SeniorApprovedQuestions />} />
 
           </Routes>
         </Router>

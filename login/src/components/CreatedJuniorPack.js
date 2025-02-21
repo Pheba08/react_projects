@@ -11,7 +11,7 @@ import Venus from "../assets/Venus.svg";
 import Mars from "../assets/Mars.svg";
 import EditBtn from "../assets/EditBtn.svg";
 
-const JuniorPack = () => {
+const CreateJuniorPack = () => {
     const navigate = useNavigate();
 
     const [expandedRow, setExpandedRow] = useState(null);
@@ -41,6 +41,10 @@ const JuniorPack = () => {
 
     const handleEdit = () => {
         navigate("/editquestion");
+    };
+
+    const handleEditJuniorPack = () => {
+        navigate("/editjuniorpack");
     };
 
     return (
@@ -195,15 +199,19 @@ const JuniorPack = () => {
                         </table>
 
                     </div>
-                    <div className="bg-[#94BDEB] rounded-xl h-[80px] w-[1262px] pb-8">
-                        <p className="pl-10">Pack created date : 12 / 05 / 2024</p>
-                    </div>
+                    <div className="bg-[#94BDEB] rounded-2xl h-[80px] w-[1262px] p-3 flex items-center justify-between">
+                        {/* Date on the Left */}
+                        <p className="pl-4 text-[#173E88] font-semibold">Pack created date : 12 / 05 / 2024</p>
 
+                        {/* Edit Pack Button on the Right */}
+                        <button onClick={handleEditJuniorPack} className="mr-4 bg-[#173E88] text-white px-8 py-2 rounded-md hover:bg-[#0f2d5c]">
+                            Edit Pack
+                        </button>
+                    </div>
                 </div>
             </div>
-
         </div>
     )
 }
 
-export default JuniorPack
+export default CreateJuniorPack;

@@ -140,7 +140,7 @@ const HomePage = () => {
     } else if (selectedTile === "valuation") {
       navigate("/valuation");
     } else if (selectedTile === "pack management") {
-      navigate("/packmanagement");
+      navigate("/packmanagementhome");
     } else if (selectedTile === "collection view") {
       navigate("/collectionview");
     }
