@@ -12,6 +12,7 @@ import Mars from "../assets/Mars.svg";
 import EditBtnBlue from "../assets/EditBtnBlue.svg";
 import FilterIcon from "../assets/FilterIcon.svg";
 import DropDown from "../assets/DropDown.svg";
+import DropUp from "../assets/DropUp.svg";
 import ApprovedQuestions from "./ApprovedQuestions";
 
 const QuestionReview = () => {
@@ -230,30 +231,41 @@ const QuestionReview = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {questions.map((q) => (
+                    {questions.map((q, index) => (
                       <React.Fragment key={q.id}>
                         {/* Question Row */}
-                        <tr className="border-b">
+                        <tr
+                          className={`${expandedRow === q.id ? "" : index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}`}
+                        >
                           <td className="px-4 py-2">{q.id}</td>
                           <td className="px-4 py-2">{q.date}</td>
                           <td className="px-4 py-2 font-semibold">{q.question}</td>
                           <td className="px-4 py-2">
-                            {/* Approve Button */}
-                            <button
-                              className="bg-[#173E88] text-white text-[13px] px-4 py-1 w-[110px] rounded flex items-center justify-between"
-                              onClick={() => toggleEdit(q.id)}
-                            >
-                              Approve
-                              {/* Dropdown icon inside the button */}
-                              <img src={DropDown} alt="Filter" className="w-3 h-3" />
-                            </button>
+                            {/* Edit Button or Drop-Up Arrow */}
+                            {expandedRow === q.id ? (
+                              <button
+                                className="flex items-center justify-center ml-16"
+                                onClick={() => toggleEdit(null)} // Collapse the row
+                              >
+                                <img src={DropUp} alt="Collapse" className="w-4 h-4" />
+                              </button>
+                            ) : (
+                              <button
+                                className="bg-[#173E88] text-white text-[13px] px-4 py-1 w-[110px] rounded-md flex items-center justify-between"
+                                onClick={() => toggleEdit(q.id)}
+                              >
+                                Approve
+                                {/* Dropdown icon inside the button */}
+                                <img src={DropDown} alt="Filter" className="w-3 h-3" />
+                              </button>
+                            )}
 
                           </td>
                         </tr>
 
                         {/* Expanded Options Row */}
                         {expandedRow === q.id && q.options && (
-                          <tr>
+                          <tr className={index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}>
                             <td colSpan="4" className="p-4">
                               {/* Solar System Image */}
                               <div className="ml-60">
@@ -278,17 +290,17 @@ const QuestionReview = () => {
                                 {/* Action Buttons */}
                                 <div className="flex justify-end mt-12 pl-16 space-x-4">
                                   <button
-                                    className="border border-[#173E88] w-[28px] h-[28px] rounded flex items-center justify-center"
+                                    className="border border-[#173E88] w-[28px] h-[28px] rounded-md flex items-center justify-center"
                                     onClick={handleEdit}
                                   >
                                     <img src={EditBtnBlue} className="w-3 h-3" />
                                   </button>
 
-                                  <button className="border border-[#173E88] w-[78px] h-[28px] text-[13px] text-[#173E88] rounded">
+                                  <button className="border border-[#173E88] w-[78px] h-[28px] text-[13px] text-[#173E88] rounded-md">
                                     Reject
                                   </button>
 
-                                  <button className="bg-[#173E88] w-[78px] h-[28px] text-[12px] text-white rounded">
+                                  <button className="bg-[#173E88] w-[78px] h-[28px] text-[12px] text-white rounded-md">
                                     Approve
                                   </button>
                                 </div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FilterIcon from "../assets/FilterIcon.svg";
 import DropDown from "../assets/DropDown.svg";
+import DropUp from "../assets/DropUp.svg";
 import SolarSystem from "../assets/SolarSystem.svg"
 import Saturn from "../assets/Saturn.svg";
 import Jupiter from "../assets/Jupiter.svg";
@@ -100,7 +101,7 @@ const RejectedQuestion = () => {
 
                                             <div className="mt-4">
                                                 <select className="w-full rounded-lg border-0 mt-1 bg-[#94BDEB] ">
-                                                <option>Category</option>
+                                                    <option>Category</option>
                                                     <option>C1</option>
                                                     <option>C2</option>
                                                     <option>C3</option>
@@ -122,43 +123,48 @@ const RejectedQuestion = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {questions.map((q) => (
+                        {questions.map((q, index) => (
                             <React.Fragment key={q.id}>
                                 {/* Question Row */}
-                                <tr className="border-b">
+                                <tr
+                                    className={`${expandedRow === q.id ? "" : index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}`}
+                                >
                                     <td className="px-4 py-2">{q.id}</td>
                                     <td className="px-4 py-2">{q.date}</td>
                                     <td className="px-4 py-2 font-semibold">{q.question}</td>
                                     <td className="px-4 py-2">
-                                        {/* Edit Button */}
-                                        <button
-                                            className="bg-[#173E88] text-white px-4 py-1 w-[87px] rounded flex items-center justify-between"
-                                            onClick={() => toggleEdit(q.id)}
-                                        >
-                                            Edit
-                                            {/* Dropdown icon inside the button */}
-                                            <img src={DropDown} alt="Filter" className="w-3 h-3" />
-                                        </button>
-
+                                        {/* Edit Button or Drop-Up Arrow */}
+                                        {expandedRow === q.id ? (
+                                            <button
+                                                className="flex items-center justify-center ml-16"
+                                                onClick={() => toggleEdit(null)} // Collapse the row
+                                            >
+                                                <img src={DropUp} alt="Collapse" className="w-4 h-4" />
+                                            </button>
+                                        ) : (
+                                            <button
+                                                className="bg-[#173E88] text-white px-4 py-1 w-[87px] rounded-md flex items-center justify-between"
+                                                onClick={() => toggleEdit(q.id)}
+                                            >
+                                                Edit
+                                                <img src={DropDown} alt="Expand" className="w-3 h-3" />
+                                            </button>
+                                        )}
                                     </td>
                                 </tr>
 
+
                                 {/* Expanded Options Row */}
                                 {expandedRow === q.id && q.options && (
-                                    <tr>
+                                    <tr className={index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}>
                                         <td colSpan="4" className="p-4">
-                                            {/* Solar System Image */}
+                                            {/* Content inside expanded row */}
                                             <div className="ml-60">
                                                 <img src={SolarSystem} alt="Solar System" className="w-20 h-20" />
                                             </div>
-
-                                            {/* Heading and Options Label */}
                                             <div className="text-center mt-2">
-
                                                 <p className="text-[13px] text-left font-semibold text-black pl-60">Options</p>
                                             </div>
-
-                                            {/* Answer Choices in One Line */}
                                             <div className="flex items-center space-x-6 mt-4 ml-60">
                                                 {q.options.map((opt, idx) => (
                                                     <div key={idx} className="flex items-center space-x-2">
@@ -167,22 +173,19 @@ const RejectedQuestion = () => {
                                                         <p className="text-sm pt-14">{opt.name}</p>
                                                     </div>
                                                 ))}
-
                                                 <div className="ml-auto">
                                                     <button className="mt-12 ml-60 bg-[#173E88] w-[28px] h-[28px] rounded flex items-center justify-center">
-                                                        <img src={EditBtn}
-                                                            onClick={handleEdit}
-                                                            className="w-3 h-3" />
+                                                        <img src={EditBtn} onClick={handleEdit} className="w-3 h-3" />
                                                     </button>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                 )}
-
                             </React.Fragment>
                         ))}
                     </tbody>
+
                 </table>
             </div>
         </div>

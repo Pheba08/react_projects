@@ -41,18 +41,17 @@ import RejectedQuestion from "./components/RejectedQuestion";
 import EditQuestion from "./components/EditQuestion";
 import QuestionReview from "./components/QuestionReview";
 import ApprovedQuestions from "./components/ApprovedQuestions";
-import HomePageUi from "./components/HomepageUi";
 import PackManagementNo from "./components/PackManagementNo";
 import PackManagementHome from "./components/PackManagementHome";
 import CreatedJuniorPack from "./components/CreatedJuniorPack";
 import CreatedSeniorPack from "./components/CreatedSeniorPack";
 import EditJuniorPack from "./components/EditJuniorPack";
-
 import JuniorApprovedQuestions from "./components/JuniorApprovedQuestions";
 import EditSeniorPack from "./components/EditSeniorPack";
 import SeniorApprovedQuestions from "./components/SeniorApprovedQuestions";
 import CreatePack from "./components/CreatePack";
 import SelectedPack from "./components/SelectedPack";
+import CollectionView from "./components/CollectionView";
 
 
 function App() {
@@ -100,7 +99,6 @@ function App() {
             <Route path="rolemanagement" element={<RoleManagement />} />
             <Route path="rolemanagement/editrole" element={<EditRole />} />
 
-
             <Route
               path="/loginauthorization"
               element={<LoginAuthorization />}
@@ -123,10 +121,9 @@ function App() {
             <Route path="/questionreview" element={<QuestionReview />} />
             <Route path="approvedquestions" element={<ApprovedQuestions />} />
 
-            <Route path="/homepageui" element={<HomePageUi />} />
-
             <Route path="/packmanagementno" element={<PackManagementNo />} />
             <Route path="/packmanagementhome" element={<PackManagementHome />} />
+
             <Route path="/createpack" element={<CreatePack />} />
             <Route path="selectedpack" element={<SelectedPack />} />
 
@@ -138,6 +135,8 @@ function App() {
 
             <Route path="/editseniorpack" element={<EditSeniorPack />} />
             <Route path="seniorpackapprovedquestions" element={<SeniorApprovedQuestions />} />
+
+            <Route path="/collectionview" element={<CollectionView />} />
 
           </Routes>
         </Router>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import buttonarrowblue from "../assets/buttonarrowblue.svg";
 import UserIcon from "../assets/UserIcon.svg";
@@ -15,6 +15,65 @@ const QuestionCreation = () => {
   // Load active tab from localStorage or default to "create"
   const [activeTab, setActiveTab] = useState(() => localStorage.getItem("activeTab") || "create");
 
+  const [selectedImages, setSelectedImages] = useState({}); // For options A, B, C, D
+  const [selectedQuestionImage, setSelectedQuestionImage] = useState(null); // For the main question image
+
+  const fileInputRefs = useRef({}); // For option images
+  const questionFileInputRef = useRef(null); // For the main question image
+
+  // Added State for Subject, Grade, Topic, and Category
+  const [subject, setSubject] = useState("");
+  const [grade, setGrade] = useState("");
+  const [topic, setTopic] = useState("");
+  const [category, setCategory] = useState("");
+
+  // Subject, Grade, Topic, Category Data
+  const subjects = ["Project Management", "Coding Fundamentals", "Effective Communication", "Leadership Development", "Data Analysis", "Design Thinking", "Time Management"];
+  const grades = ["A", "B", "C", "D", "E", "F", "G"];
+  const topics = ["Communication", "Leadership", "Creativity", "Adaptability", "Team work", "Problem solving", "Active listening"];
+  const categories = ["C1", "C2", "C3","C4", "C5", "C6", "C7"];
+
+
+  const handleImageClick = (option) => {
+    if (fileInputRefs.current[option]) {
+      fileInputRefs.current[option].click();
+    }
+  };
+
+  const handleImageChange = (event, option) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedImages((prev) => ({
+        ...prev,
+        [option]: URL.createObjectURL(file),
+      }));
+    }
+  };
+
+  const handleRemoveImage = (option) => {
+    setSelectedImages((prev) => ({
+      ...prev,
+      [option]: null,
+    }));
+  };
+
+  const handleQuestionImageClick = () => {
+    if (questionFileInputRef.current) {
+      questionFileInputRef.current.click();
+    }
+  };
+
+  const handleQuestionImageChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setSelectedQuestionImage(URL.createObjectURL(file));
+    }
+  };
+
+  const handleRemoveQuestionImage = () => {
+    setSelectedQuestionImage(null);
+  };
+
   // Save activeTab to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("activeTab", activeTab);
@@ -28,6 +87,7 @@ const QuestionCreation = () => {
   const handleRole = () => {
     navigate("/homepage");
   };
+  
 
   return (
     <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
@@ -94,7 +154,7 @@ const QuestionCreation = () => {
         </div>
       </nav>
       {/* Container with common white background */}
-      <div className="mt-4 ml-8 bg-white rounded-xl w-full max-w-7xl">
+      <div className="mt-4 ml-8 bg-white rounded-xl w-full max-w-7xl mb-5">
         {/* Tab Navigation */}
         <div className="flex justify-between px-5 md:px-10 py-0 rounded-t-xl">
           {[
@@ -124,17 +184,71 @@ const QuestionCreation = () => {
                   <div className="text-[#173E88] text-[12px] font-semibold">Created Date: 12/05/2024</div>
                 </div>
 
-                {/* User Creation */}
-                <h2 className="text-[#030303] text-[14px] text-left font-medium mb-2">User Creation</h2>
-                <div className="w-1/2 grid grid-cols-2 gap-2 text-left text-[12px]">
-                  {["Subject", "Grade", "Topic", "Category"].map((label) => (
-                    <div key={label}>
-                      <label className="block text-[#030303] mb-1 pl-2">{label}</label>
-                      <select className="w-[235px] h-[30px] p-2 border border-[#94BDEB] rounded-md text-[10px] pt-0 text-[#A8A8A8]">
-                        <option>Select {label}</option>
-                      </select>
-                    </div>
-                  ))}
+                {/* Added Subject, Grade, Topic, Category */}
+                <div className="w-1/2 grid grid-cols-2 gap-4 text-left text-[12px]">
+                  <div>
+                    <label className="block text-[#030303] mb-1 pl-2">Subject</label>
+                    <select
+                      className="w-[235px] h-[30px] py-[1px] border border-[#94BDEB] rounded-md text-[11px] text-[#A8A8A8] "
+                      value={subject}
+                      onChange={(e) => setSubject(e.target.value)}
+                    >
+                      <option value="">Subject</option>
+                      {subjects.map((subj) => (
+                        <option key={subj} value={subj}>
+                          {subj}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[#030303] mb-1 pl-2">Grade</label>
+                    <select
+                      className="w-[235px] h-[30px] py-[1px] border border-[#94BDEB] rounded-md text-[11px] text-[#A8A8A8]"
+                      value={grade}
+                      onChange={(e) => setGrade(e.target.value)}
+                    >
+                      <option value="">Grade</option>
+                      {grades.map((g) => (
+                        <option key={g} value={g}>
+                          {g}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[#030303] mb-1 pl-2">Topic</label>
+                    <select
+                      className="w-[235px] h-[30px] py-[1px] border border-[#94BDEB] rounded-md text-[11px] text-[#A8A8A8]"
+                      value={topic}
+                      onChange={(e) => setTopic(e.target.value)}
+                    >
+                      <option>Topic</option>
+                      {topics.map((t) => (
+                        <option key={t} value={t}>
+                          {t}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[#030303] mb-1 pl-2">Category</label>
+                    <select
+                      className="w-[235px] h-[30px] py-[1px] border border-[#94BDEB] rounded-md text-[11px] text-[#A8A8A8]"
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                    >
+                      <option value="">Category</option>
+                      {categories.map((c) => (
+                        <option key={c} value={c}>
+                          {c}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* Question and Answer Creation */}
@@ -150,18 +264,48 @@ const QuestionCreation = () => {
                       className="w-[1100px] pt-1 placeholder:text-[12px] text-[#A8A8A8] border border-[#94BDEB] rounded-md h-16"
                     ></textarea>
 
-                    {/* Image Upload Box with Close Button */}
-                    <div className="relative">
-                      <div className="w-16 h-16 bg-[#E9F3FC] border border-[#94BDEB] flex items-center justify-center rounded-md">
-                        <img src={imageIcon} alt="Icon" className="w-4 h-4" />
+                    {/* Image Upload Box with Upload Button on Right Side */}
+                    <div className="flex items-center gap-4 relative">
+                      {/* Image Upload Box */}
+                      <div className="relative">
+                        <div
+                          className="w-16 h-16 bg-[#E9F3FC] border border-[#94BDEB] flex items-center justify-center rounded-md cursor-pointer"
+                          onClick={handleQuestionImageClick}
+                        >
+                          {selectedQuestionImage ? (
+                            <img src={selectedQuestionImage} alt="Uploaded" className="w-full h-full object-cover rounded-md" />
+                          ) : (
+                            <img src={imageIcon} alt="Icon" className="w-4 h-4" />
+                          )}
+                        </div>
+
+                        {/* Hidden File Input */}
+                        <input
+                          type="file"
+                          accept="image/*"
+                          ref={questionFileInputRef}
+                          onChange={handleQuestionImageChange}
+                          className="hidden"
+                        />
+
+                        {/* Close Button (Only visible when an image is selected) */}
+                        {selectedQuestionImage && (
+                          <button
+                            className="absolute top-[-1px] right-[-26px] rounded-full"
+                            onClick={handleRemoveQuestionImage}
+                          >
+                            <img src={closeButton} alt="Close" className="w-3 h-3" />
+                          </button>
+                        )}
                       </div>
-                      <button className="absolute top-[-1px] right-[-24px]">
-                        <img src={closeButton} alt="Close" className="w-3 h-3" />
+
+                      {/* Upload Button - Positioned to the Right of Image */}
+                      <button className="mt-7 px-4 py-2 bg-[#173E88] text-white rounded-md text-[12px]">
+                        Upload
                       </button>
                     </div>
 
-                    {/* Upload Button */}
-                    <button className="mt-7 px-4 py-2 bg-[#173E88] text-white rounded-md text-[12px]">Upload</button>
+
                   </div>
                 </div>
 
@@ -176,24 +320,53 @@ const QuestionCreation = () => {
                         placeholder="Title or answer"
                       />
 
-                      {/* Image Upload Box with Close Button */}
-                      <div className="relative mt-2">
-                        <div className="w-[100px] h-[90px] bg-[#E9F3FC] border border-[#94BDEB] flex items-center justify-center rounded-md"></div>
-                        <button className="absolute top-[4px] left-28">
-                          <img src={closeButton} alt="Close" className="w-3 h-3" />
-                        </button>
+                      {/* Image Upload Box */}
+                      <div
+                        className="relative mt-2 w-[100px] h-[90px] bg-[#E9F3FC] border border-[#94BDEB] flex items-center justify-center rounded-md cursor-pointer"
+                        onClick={() => handleImageClick(option)}
+                      >
+                        {selectedImages[option] ? (
+                          <img src={selectedImages[option]} alt="Uploaded" className="w-full h-full object-cover rounded-md" />
+                        ) : (
+                          <img src={imageIcon} alt="Icon" className="w-4 h-4" />
+                        )}
                       </div>
 
+                      {/* Hidden File Input */}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        ref={(el) => (fileInputRefs.current[option] = el)}
+                        onChange={(e) => handleImageChange(e, option)}
+                        className="hidden"
+                      />
+
+
+                      {/* Close Button (Only visible when image is selected) */}
+                      {selectedImages[option] && (
+                        <button
+                          className="absolute top-[60px] left-28"
+                          onClick={() => handleRemoveImage(option)}
+                        >
+                          <img src={closeButton} alt="Close" className="w-3 h-3" />
+                        </button>
+                      )}
+
+                      {/* Weightage Mark Input */}
                       <input
                         type="text"
-                        className="w-[100px] h-[35px] p-2 border border-[#94BDEB] rounded-md text-[10px] text-[#A8A8A8] "
+                        className="w-[100px] h-[35px] p-2 border border-[#94BDEB] rounded-md text-[10px] text-[#A8A8A8]"
                         placeholder="Weightage mark"
                       />
 
                       {/* Upload Button */}
-                      <button className="ml-4 mt-2 px-4 py-2 bg-[#173E88] text-white rounded-md text-[12px] w-[90px] h-[35px] ">Upload</button>
+                      <button className="ml-4 mt-2 px-4 py-2 bg-[#173E88] text-white rounded-md text-[12px] w-[90px] h-[35px]">
+                        Upload
+                      </button>
                     </div>
                   ))}
+
+
                   {/* Save Button */}
                   <div className="mt-40 ml-16">
                     <button className="px-4 py-1 h-[35px] bg-[#173E88] text-white rounded-md">Save</button>

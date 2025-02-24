@@ -107,7 +107,7 @@ const CreatePassword = () => {
             {/* continue button */}
             <button
               type="button"
-              className="w-[214px] h-[32px] bg-[#173E88] text-white rounded-md text-[10px] font-nunito absolute left-12"
+              className="w-[214px] h-[32px] bg-[#173E88] text-white rounded-md text-[14px] pb-1 font-nunito absolute left-12"
             >
               Continue
             </button>

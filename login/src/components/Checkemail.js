@@ -29,12 +29,12 @@ const CheckEmail = () => {
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-3xl font-bold font-family-poppins text-[#000000] mb-6 text-left pt-6 pl-12">
+        <h1 className="text-4xl font-bold font-family-poppins text-[#000000] mb-6 text-left pt-6 pl-12">
           Check your email
         </h1>
-        <p className="text-[12px] w-[600px] text-left font-family-Nunito font-400 text-[#030303] pt-6 pl-12">
+        <p className="text-[14px] w-[600px] text-left font-family-Nunito font-400 text-[#030303] pt-6 pl-12">
           We sent a password reset link to{" "}
-          <span className="font-family-Nunito text-[12px] font-bold text-[#173E88] underline">
+          <span className="font-family-Nunito text-[14px] font-bold text-[#173E88] underline">
             {email}
           </span>
         </p>
@@ -44,7 +44,7 @@ const CheckEmail = () => {
         >
           Open Email
         </button>
-        <p className="text-[12px] w-[600px] text-left font-family-Nunito font-400 text-[#030303] pt-[65px] pl-12 float-left">
+        <p className="text-[14px] w-[600px] text-left font-family-Nunito font-400 text-[#030303] pt-[65px] pl-12 float-left">
           Didn't receive an email?{" "}
           <span className="font-family-Nunito text-[12px] font-bold text-[#173E88] underline">
             click to resend

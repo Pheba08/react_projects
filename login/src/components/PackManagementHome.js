@@ -46,13 +46,13 @@ const PackManagementHome = () => {
                         <ul className="pt-1 space-y-2 text-left w-full">
                             {[
                                 { name: "Home", icon: dashboard },
-                                { name: "Approved questions", icon: dashboard, path: "/counsellors" },
-                                { name: "Selected questions", icon: dashboard, path: "/institutions" },
+                                { name: "Approved questions", icon: dashboard, path: "/createpack" },
+                                { name: "Selected questions", icon: dashboard, path: "/createpack/selected" },
                             ].map((item, index) => (
                                 <li
                                     key={index}
                                     className="flex items-center gap-3 text-[12px] cursor-pointer px-4 py-[5px] transition-all rounded-l-2xl w-full block 
-      hover:bg-white hover:text-[#173E88] hover:w-full"
+                                    hover:bg-white hover:text-[#173E88] hover:w-full"
                                     onClick={() => navigate(item.path)} // Added navigation here
                                 >
                                     <img
@@ -118,20 +118,20 @@ const PackManagementHome = () => {
                         {/* First Pack */}
                         <div className="relative">
                             <button onClick={handleJunior} className="relative">
-                                <img src={ActivePack} alt="Menu" className="w-[150px] h-[150px]" />
-                                <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-semibold">
+                                <img src={ActivePack} alt="Menu" className="w-[170px] h-[170px]" />
+                                <p className="absolute top-1/2 left-4 transform -translate-y-1/2 text-black text-[28px] font-semibold text-left">
                                     Junior <br />
                                     Pack
                                 </p>
                             </button>
-
                         </div>
+
 
                         {/* Second Pack */}
                         <div className="relative">
                             <button onClick={handleSenior} className="relative">
-                                <img src={ActivePack} alt="Menu" className="w-[150px] h-[150px]" />
-                                <p className="absolute text-left top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black font-semibold ">
+                                <img src={ActivePack} alt="Menu" className="w-[170px] h-[170px]" />
+                                <p className="absolute top-1/2 left-4 transform -translate-y-1/2 text-black text-[28px] font-semibold text-left">
                                     Senior <br />
                                     Pack
                                 </p>

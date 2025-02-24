@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ActivePack from "../assets/ActivePack.svg";
-import DropDown from "../assets/DropDown.svg"
+import DropDown from "../assets/DropDown.svg";
+import DropUp from "../assets/DropUp.svg";
 import SolarSystem from "../assets/SolarSystem.svg"
 import Saturn from "../assets/Saturn.svg";
 import Jupiter from "../assets/Jupiter.svg";
@@ -54,61 +55,61 @@ const SeniorApprovedQuestions = () => {
                 </p>
             </div>
 
-                            {/* Approved question filter */}
-                            <div className="max-w-[1262px] mx-auto bg-white rounded-3xl mt-3 pb-6">
-                                {/* Header */}
-                                <div className="bg-[#94BDEB] rounded-t-3xl">
-                                    <h2 className="text-[14px] font-medium font-poppins text-left px-6 py-2">
-                                        Approved question filter
-                                    </h2>
-                                </div>
+            {/* Approved question filter */}
+            <div className="max-w-[1262px] mx-auto bg-white rounded-3xl mt-3 pb-6">
+                {/* Header */}
+                <div className="bg-[#94BDEB] rounded-t-3xl">
+                    <h2 className="text-[14px] font-medium font-poppins text-left px-6 py-2">
+                        Approved question filter
+                    </h2>
+                </div>
 
-                                {/* First Row - 5 Columns */}
-                                <div className="grid grid-cols-5 gap-7 px-6 py-4">
-                                    {/* Grade */}
-                                    <div className="text-left">
-                                        <label className="block text-[12px] font-medium pb-1 ">Grade</label>
-                                        <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
-                                                <option>Grade</option>
-                                            </select>
-                                    </div>
+                {/* First Row - 5 Columns */}
+                <div className="grid grid-cols-5 gap-7 px-6 py-4">
+                    {/* Grade */}
+                    <div className="text-left">
+                        <label className="block text-[12px] font-medium pb-1 ">Grade</label>
+                        <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
+                            <option>Grade</option>
+                        </select>
+                    </div>
 
-                                    {/* Subject */}
-                                    <div className="text-left">
-                                        <label className="block text-sm font-medium pb-1">Subject</label>
-                                        <div className="flex items-center gap-2">
-                                            <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
-                                                <option>Subject</option>
-                                            </select>
-                                            
-                                        </div>
-                                    </div>
+                    {/* Subject */}
+                    <div className="text-left">
+                        <label className="block text-sm font-medium pb-1">Subject</label>
+                        <div className="flex items-center gap-2">
+                            <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
+                                <option>Subject</option>
+                            </select>
 
-                                    {/* Topic */}
-                                    <div className="text-left">
-                                        <label className="block text-sm font-medium pb-1">Topic</label>
-                                        <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
-                                                <option>Topic</option>
-                                            </select>
-                                    </div>
+                        </div>
+                    </div>
 
-                                    {/* Category */}
-                                    <div className="text-left">
-                                        <label className="block text-sm font-medium pb-1">Category</label>
-                                        <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
-                                                <option>Category</option>
-                                            </select>
-                                    </div>
+                    {/* Topic */}
+                    <div className="text-left">
+                        <label className="block text-sm font-medium pb-1">Topic</label>
+                        <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
+                            <option>Topic</option>
+                        </select>
+                    </div>
 
-                                    {/* Number of Questions */}
-                                    <div className="flex flex-col justify-center items-center ">
-                                        <label className="block text-sm font-medium pb-1">Number of Questions</label>
-                                        <div className="bg-[#173E88] text-white rounded-md w-[70px] h-[35px] flex justify-center items-center font-bold">
-                                            120
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    {/* Category */}
+                    <div className="text-left">
+                        <label className="block text-sm font-medium pb-1">Category</label>
+                        <select className="h-[35px] border border-[#94BDEB] rounded-md placeholder text-[#A8A8A8] text-[10px] px-3 py-1 w-full">
+                            <option>Category</option>
+                        </select>
+                    </div>
+
+                    {/* Number of Questions */}
+                    <div className="flex flex-col justify-center items-center ">
+                        <label className="block text-sm font-medium pb-1">Number of Questions</label>
+                        <div className="bg-[#173E88] text-white rounded-md w-[70px] h-[35px] flex justify-center items-center font-bold">
+                            120
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div className="max-w-[1262px] mx-auto bg-white rounded-3xl mt-8 ">
                 <div className="bg-[#94BDEB] rounded-t-3xl ">
@@ -131,32 +132,40 @@ const SeniorApprovedQuestions = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {questions.map((q) => (
+                            {questions.map((q, index) => (
                                 <React.Fragment key={q.id}>
                                     {/* Question Row */}
-                                    <tr className="border-b">
+                                    <tr
+                                        className={`${expandedRow === q.id ? "" : index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}`}
+                                    >
 
                                         <td className="px-4 py-2">{q.date}</td>
                                         <td className="px-4 py-2 font-semibold">{q.question}</td>
                                         <td className="pl-20">
-                                            {/* Drop down Button */}
-
-
-                                            <button
-                                                className="bg-[#173E88] text-white text-[13px] px-4 py-1 w-[110px] rounded flex items-center justify-between"
-                                                onClick={() => toggleEdit(q.id)}
-                                            >
-                                                Select
-                                                {/* Dropdown icon inside the button */}
-                                                <img src={DropDown} alt="Filter" className="w-3 h-3" />
-                                            </button>
-
+                                            {/* Edit Button or Drop-Up Arrow */}
+                                            {expandedRow === q.id ? (
+                                                <button
+                                                    className="flex items-center justify-center ml-16"
+                                                    onClick={() => toggleEdit(null)} // Collapse the row
+                                                >
+                                                    <img src={DropUp} alt="Collapse" className="w-4 h-4" />
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    className="bg-[#173E88] text-white text-[13px] px-4 py-1 w-[110px] rounded flex items-center justify-between"
+                                                    onClick={() => toggleEdit(q.id)}
+                                                >
+                                                    Select
+                                                    {/* Dropdown icon inside the button */}
+                                                    <img src={DropDown} alt="Filter" className="w-3 h-3" />
+                                                </button>
+                                            )}
                                         </td>
                                     </tr>
 
                                     {/* Expanded Options Row */}
                                     {expandedRow === q.id && q.options && (
-                                        <tr>
+                                        <tr className={index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}>
                                             <td colSpan="4" className="p-4">
                                                 {/* Solar System Image */}
                                                 <div className="ml-60">

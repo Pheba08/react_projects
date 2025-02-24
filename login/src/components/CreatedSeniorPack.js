@@ -4,6 +4,7 @@ import buttonarraowblue from "../assets/buttonarrowblue.svg";
 import ActivePack from "../assets/ActivePack.svg";
 import InActivePack from "../assets/InActivePack.svg";
 import DropDownBlue from "../assets/DropDownBlue.svg"
+import DropUp from "../assets/DropUp.svg"
 import SolarSystem from "../assets/SolarSystem.svg"
 import Saturn from "../assets/Saturn.svg";
 import Jupiter from "../assets/Jupiter.svg";
@@ -136,29 +137,38 @@ const CreatedSeniorPack = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {questions.map((q) => (
+                                {questions.map((q, index) => (
                                     <React.Fragment key={q.id}>
                                         {/* Question Row */}
-                                        <tr className="border-b">
+                                        <tr
+                                            className={`${expandedRow === q.id ? "" : index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}`}
+                                        >
                                             <td className="px-4 py-2">{q.id}</td>
                                             <td className="px-4 py-2">{q.date}</td>
                                             <td className="px-4 py-2 font-semibold">{q.question}</td>
                                             <td className="pl-20">
-                                                {/* Drop down Button */}
-                                                <button
-                                                    className="items-center justify-between"
-                                                    onClick={() => toggleEdit(q.id)}
-                                                >
-                                                    {/* Dropdown icon inside the button */}
-                                                    <img src={DropDownBlue} alt="Filter" className="w-3 h-3" />
-                                                </button>
-
+                                                {/* Edit Button or Drop-Up Arrow */}
+                                                {expandedRow === q.id ? (
+                                                    <button
+                                                        className="flex items-center justify-center ml-1"
+                                                        onClick={() => toggleEdit(null)} // Collapse the row
+                                                    >
+                                                        <img src={DropUp} alt="Collapse" className="w-4 h-4" />
+                                                    </button>
+                                                ) : (
+                                                    <button
+                                                        className="flex items-center justify-center ml-4"
+                                                        onClick={() => toggleEdit(q.id)}
+                                                    >
+                                                        <img src={DropDownBlue} alt="Expand" className="w-4 h-4" />
+                                                    </button>
+                                                )}
                                             </td>
                                         </tr>
 
                                         {/* Expanded Options Row */}
                                         {expandedRow === q.id && q.options && (
-                                            <tr>
+                                            <tr className={index === questions.length - 1 ? "" : "border-b border-[#94BDEB]"}>
                                                 <td colSpan="4" className="p-4">
                                                     {/* Solar System Image */}
                                                     <div className="ml-60">

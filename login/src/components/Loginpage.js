@@ -124,7 +124,7 @@ const LoginPage = () => {
           alt="Skills Connect Logo"
           className="w-[200px] h-[100px] pt-5 mb-8 pl-12"
         />
-        <h1 className="text-xl sm:text-xl md:text-xl lg:text-3xl font-bold font-family-poppins text-[#000000] text-left pt-2 pl-12">
+        <h1 className="text-xl sm:text-xl md:text-xl lg:text-4xl font-bold font-family-poppins text-[#000000] text-left pt-2 pl-12">
           Hello, <br />
           Welcome to Skills Connect
         </h1>
@@ -171,6 +171,13 @@ const LoginPage = () => {
             </div>
           </div>
 
+          {/* Error Message - Positioned Above "Remember me" */}
+          {error && (
+            <div className="text-left text-red-500 text-[10px]">
+              {error}
+            </div>
+          )}
+
           <div className="relative flex items-center gap-x-24 -top-4">
             <label className="flex items-center gap-x-1 ">
               <input
@@ -187,16 +194,9 @@ const LoginPage = () => {
             </Link>
           </div>
 
-          {/* Error Message */}
-          {error && (
-            <div className="absolute top-[390px] text-red-500 text-[10px]">
-              {error}
-            </div>
-          )}
-
           <button
             type="submit"
-            className="w-[86px] h-[34px] bg-[#173E88] text-white rounded-lg font-family-Nunito text-[12px] float-start"
+            className="w-[86px] h-[34px] bg-[#173E88] text-white rounded-lg font-family-Nunito text-[13px] float-start"
           >
             Log in
           </button>
