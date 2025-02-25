@@ -52,6 +52,7 @@ import SeniorApprovedQuestions from "./components/SeniorApprovedQuestions";
 import CreatePack from "./components/CreatePack";
 import SelectedPack from "./components/SelectedPack";
 import CollectionView from "./components/CollectionView";
+import CreateAccount from "./components/Institution/CreateAccount";
 
 
 function App() {
@@ -137,6 +138,9 @@ function App() {
             <Route path="seniorpackapprovedquestions" element={<SeniorApprovedQuestions />} />
 
             <Route path="/collectionview" element={<CollectionView />} />
+
+            <Route path="/createaccount" element={<CreateAccount />} />
+
 
           </Routes>
         </Router>
