@@ -53,6 +53,12 @@ import CreatePack from "./components/CreatePack";
 import SelectedPack from "./components/SelectedPack";
 import CollectionView from "./components/CollectionView";
 import CreateAccount from "./components/Institution/CreateAccount";
+import CompleteInstitutionProfile from "./components/Institution/CompleteInstitutionProfile";
+import InstitutionNav from "./components/Institution/InstitutionNav";
+import InstitutionDashboard from "./components/Institution/InstitutionDashboard";
+import ExamPacks from "./components/Institution/ExamPacks";
+import StudentsList from "./components/Institution/StudentsList";
+import EnquiriesList from "./components/Institution/EnquiriesList";
 
 
 function App() {
@@ -140,6 +146,14 @@ function App() {
             <Route path="/collectionview" element={<CollectionView />} />
 
             <Route path="/createaccount" element={<CreateAccount />} />
+
+            <Route path="/completeinstitutionprofile" element={<CompleteInstitutionProfile />} />
+
+            <Route path="/institutionnav" element={<InstitutionNav />} />
+            <Route path="/institutiondashboard" element={<InstitutionDashboard />} />
+              <Route path="exampacks" element={<ExamPacks />} />
+              <Route path="studentslist" element={<StudentsList />} />
+              <Route path="enquirieslist" element={<EnquiriesList />} />
 
 
           </Routes>

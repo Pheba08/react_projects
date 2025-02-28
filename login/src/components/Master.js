@@ -117,3 +117,19 @@ const Master = () => {
 };
 
 export default Master;
+
+
+{/* <div className="flex space-x-6 border-b-2 border-gray-200">
+{["Dashboard", "Exam Packs", "Students List", "Enquiries List"].map((tab) => (
+<button
+key={tab}
+className={`pb-2 text-sm font-semibold transition-all duration-200 relative ${activeTab === tab
+? "text-[#173E88] after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-full after:h-[4px] after:bg-[#173E88] after:font-bold"
+: "text-[#173E88] opacity-70"
+}`}
+onClick={() => setActiveTab(tab)}
+>
+{tab}
+</button>
+))}
+</div> */}

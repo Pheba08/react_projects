@@ -30,7 +30,7 @@ const Inbox = () => {
 
       <h1 className="text-[30px] text-left font-Poppins pt-3 pl-[70px] ">Inbox</h1>
 
-      <div className="max-w-[1230px] mx-auto bg-[#DAE8F7] rounded-2xl p-6 mt-3  items-center">
+      <div className="max-w-[1230px] mx-auto bg-[#DAE8F7] rounded-2xl p-6 mt-3 items-center">
         <div className="max-w-[1200px] bg-white rounded-xl p-6 mt-3 ">
           <p className="text-left text-[16px] ">Congratulations! Your exam result has arrived. You can view your result from the Exam History section in your dashboard.</p>
           <p className="text-[#8C8A8A] text-[12px] text-left ">1hr ago</p>
