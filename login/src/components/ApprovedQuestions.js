@@ -40,7 +40,6 @@ const ApprovedQuestions = () => {
         }
     };
 
-
     const navigate = useNavigate();
     const handleEdit = () => {
         navigate("/editquestion");

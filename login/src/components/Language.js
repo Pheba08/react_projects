@@ -65,18 +65,18 @@ const Language = () => {
 
         {/* Table Container */}
         <div className="max-w-[1130px] mx-auto bg-white rounded-3xl mt-6">
-            {/* Header Section */}
-            <div className="bg-[#94BDEB] rounded-t-3xl">
-              <h2 className="text-[14px] font-medium font-poppins text-black text-left px-6 py-2">
-                Language management master
-              </h2>
-            </div>
+          {/* Header Section */}
+          <div className="bg-[#94BDEB] rounded-t-3xl">
+            <h2 className="text-[14px] font-medium font-poppins text-black text-left px-6 py-2">
+              Language management master
+            </h2>
+          </div>
 
           {/* Table */}
           <div className="overflow-x-auto p-1">
             <table className="w-full border-collapse">
               <thead>
-              <tr className="bg-[linear-gradient(180deg,_rgba(80,131,205,0.3)_0%,_rgba(80,131,205,0.05)_100%)]">
+                <tr className="bg-[linear-gradient(180deg,_rgba(80,131,205,0.3)_0%,_rgba(80,131,205,0.05)_100%)]">
                   <th className="text-left px-4 py-2 text-[12px] text-[#173E88] font-poppins">Language Name</th>
                   <th className="text-left px-4 py-2 text-[12px] text-[#173E88] font-poppins">Description</th>
                   <th className="text-center px-4 py-2 text-[12px] text-[#173E88] font-poppins">Edit</th>
@@ -104,10 +104,7 @@ const Language = () => {
                         src={DeleteButton}
                         alt="Delete"
                         className="w-3 h-3 mx-auto"
-                       
                         onClick={() => handleDelete(language.id)}
-
-
                       />
                     </td>
                   </tr>

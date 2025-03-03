@@ -19,12 +19,20 @@ const InstitutionNav = () => {
         localStorage.setItem("activeTab", activeTab);
     }, [activeTab]);
 
+    const handleProfile = () => {
+        navigate("/profiledetails");
+    };
+
+    const handleInbox = () => {
+        navigate("/institutioninbox");
+    };
+
     const handleLogout = () => {
         navigate("/loginpage");
     };
 
     return (
-        <div>
+        <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
             {/* Navbar */}
             <nav>
                 {/* First Layer */}
@@ -57,12 +65,16 @@ const InstitutionNav = () => {
 
                     {/* Right-side buttons */}
                     <div className="flex items-center gap-3">
-                        <button className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl hover:bg-[#173E88] hover:text-white">
+                        <button
+                        onClick={handleInbox}
+                        className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl hover:bg-[#173E88] hover:text-white">
                             Inbox
                         </button>
 
-                        <button className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full hover:bg-[#173E88]">
-                            <img src={UserIcon} alt="User" className="w-[16px] h-[16px]" />
+                        <button 
+                        onClick={handleProfile}
+                        className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full hover:bg-[#173E88]">
+                            <img src={UserIcon} alt="User" className="w-[14px] h-[14px] ml-1" />
                         </button>
 
                         <div className="relative">

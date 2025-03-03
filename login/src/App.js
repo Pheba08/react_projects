@@ -59,6 +59,10 @@ import InstitutionDashboard from "./components/Institution/InstitutionDashboard"
 import ExamPacks from "./components/Institution/ExamPacks";
 import StudentsList from "./components/Institution/StudentsList";
 import EnquiriesList from "./components/Institution/EnquiriesList";
+import InstitutionSideNav from "./components/Institution/InstitutionSideNav";
+import ProfileDetails from "./components/Institution/ProfileDetails";
+import EditProfileDetails from "./components/Institution/EditProfileDetails";
+import InstitutionInbox from "./components/Institution/InstitutionInbox";
 
 
 function App() {
@@ -150,7 +154,11 @@ function App() {
             <Route path="/completeinstitutionprofile" element={<CompleteInstitutionProfile />} />
 
             <Route path="/institutionnav" element={<InstitutionNav />} />
+            <Route path="/institutionsidenav" element={<InstitutionSideNav />} />
+            <Route path="/profiledetails" element={<ProfileDetails />} />
+            <Route path="/editprofiledetails" element={<EditProfileDetails />} />
             <Route path="/institutiondashboard" element={<InstitutionDashboard />} />
+              <Route path="institutioninbox" element={<InstitutionInbox />} />
               <Route path="exampacks" element={<ExamPacks />} />
               <Route path="studentslist" element={<StudentsList />} />
               <Route path="enquirieslist" element={<EnquiriesList />} />
