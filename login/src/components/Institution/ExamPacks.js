@@ -39,9 +39,9 @@ const ExamPacks = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="flex flex-col p-4 md:p-6">
+    <div className="flex flex-col p-4 md:p-6 ">
       {/* First Row - Stats */}
-      <div className="w-full text-[#173E88] p-12 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="w-full text-[#173E88] p-10 grid grid-cols-1 md:grid-cols-3 gap-12">
         <div className="bg-white p-3 rounded-full flex justify-between w-full">
           <span className="text-[24px] text-left p-5 pl-8 font-semibold">
             Total <br /> Packs
@@ -98,18 +98,18 @@ const ExamPacks = () => {
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-[linear-gradient(180deg,_rgba(80,131,205,0.3)_0%,_rgba(80,131,205,0.05)_100%)] text-left">
-                    <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Packs</th>
-                    <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Expiry date</th>
-                    <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Price for one pack (MRP)</th>
-                    <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Bundle quantity</th>
-                    <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Bundle price</th>
-                    <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins"></th>
+                    <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Packs</th>
+                    <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Expiry date</th>
+                    <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Price for one pack (MRP)</th>
+                    <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Bundle quantity</th>
+                    <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Bundle price</th>
+                    <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins"></th>
                   </tr>
                 </thead>
                 <tbody>
                   {users.filter((user) => user.packs?.includes(searchTerm.trim())).map((user, index) => (
                     <tr key={user.id} className={index !== users.length - 1 ? "border-b border-[#94BDEB]" : ""}>
-                      <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                      <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                         <select
                           value={user.packs}
                           onChange={(e) => {
@@ -126,13 +126,13 @@ const ExamPacks = () => {
                         </select>
                       </td>
 
-                      <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.expiryDate}</td>
-                      <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.price}</td>
-                      <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.bundleQuantity}</td>
-                      <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.bundlePrice}</td>
-                      <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                      <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.expiryDate}</td>
+                      <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.price}</td>
+                      <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.bundleQuantity}</td>
+                      <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.bundlePrice}</td>
+                      <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                         <button
-                          className="bg-[#173E88] text-white text-[12px] px-6 py-1 rounded-full hover:bg-blue-800"
+                          className="bg-[#173E88] text-white text-[14x] px-6 py-1 rounded-full hover:bg-blue-800"
                         >
                           Buy
                         </button>

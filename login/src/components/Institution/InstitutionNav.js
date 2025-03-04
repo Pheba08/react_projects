@@ -7,6 +7,8 @@ import InstitutionDashboard from "./InstitutionDashboard";
 import ExamPacks from "./ExamPacks";
 import StudentsList from "./StudentsList";
 import EnquiriesList from "./EnquiriesList";
+import InstitutionSideNav from "./InstitutionSideNav";
+import FiftthStdPack from "./FifthStdPack";
 
 const InstitutionNav = () => {
     const navigate = useNavigate();
@@ -15,48 +17,45 @@ const InstitutionNav = () => {
         return localStorage.getItem("activeTab") || "Dashboard";
     });
 
+    const [showFifthStdPack, setShowFifthStdPack] = useState(false); // Toggle FifthStdPack
+
     useEffect(() => {
         localStorage.setItem("activeTab", activeTab);
     }, [activeTab]);
 
-    const handleProfile = () => {
-        navigate("/profiledetails");
-    };
+    const handleProfile = () => navigate("/profiledetails");
+    const handleInbox = () => navigate("/institutioninbox");
+    const handleLogout = () => navigate("/loginpage");
 
-    const handleInbox = () => {
-        navigate("/institutioninbox");
-    };
-
-    const handleLogout = () => {
-        navigate("/loginpage");
+    const handleBuyMoreClick = () => {
+        setShowFifthStdPack(true); // Show FifthStdPack content
     };
 
     return (
-        <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
+        <div className="min-h-screen bg-[#E9F3FC]">
             {/* Navbar */}
-            <nav>
+            <nav className="sticky top-0 z-50">
                 {/* First Layer */}
                 <div className="bg-gradient-to-r from-[#173E88] to-[#5083CD] h-[38px]"></div>
 
                 {/* Second Layer */}
                 <div className="bg-white h-[38px] flex items-center justify-between px-5 md:px-10">
                     {/* Logo */}
-                    <img
-                        src={adminlogo}
-                        alt="Skills Connect Logo"
-                        className="w-[150px] h-[30px]"
-                    />
+                    <img src={adminlogo} alt="Skills Connect Logo" className="w-[150px] h-[30px]" />
 
-                    {/* Tab Navigation */}
+                    {/* Tab Navigation - Always Visible */}
                     <div className="flex space-x-6 mt-1">
                         {["Dashboard", "Exam Packs", "Students List", "Enquiries List"].map((tab) => (
                             <button
                                 key={tab}
-                                className={`pb-2 text-sm font-semibold transition-all duration-200 relative ${activeTab === tab
+                                className={`pb-2 text-[16px] font-semibold transition-all duration-200 relative ${activeTab === tab && !showFifthStdPack
                                     ? "text-[#173E88] after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-full after:h-[4px] after:bg-[#173E88] after:rounded-full after:font-bold"
                                     : "text-[#173E88] opacity-70 "
                                     }`}
-                                onClick={() => setActiveTab(tab)}
+                                onClick={() => {
+                                    setActiveTab(tab);
+                                    setShowFifthStdPack(false); // Reset when switching tabs
+                                }}
                             >
                                 {tab}
                             </button>
@@ -65,15 +64,11 @@ const InstitutionNav = () => {
 
                     {/* Right-side buttons */}
                     <div className="flex items-center gap-3">
-                        <button
-                        onClick={handleInbox}
-                        className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl hover:bg-[#173E88] hover:text-white">
+                        <button onClick={handleInbox} className="text-[13px] text-[#173E88] font-nunito w-[67px] h-[26px] border-[1px] border-[#173E88] rounded-2xl hover:bg-[#173E88] hover:text-white">
                             Inbox
                         </button>
 
-                        <button 
-                        onClick={handleProfile}
-                        className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full hover:bg-[#173E88]">
+                        <button onClick={handleProfile} className="w-[24px] h-[24px] border-[1px] border-[#173E88] rounded-full hover:bg-[#173E88]">
                             <img src={UserIcon} alt="User" className="w-[14px] h-[14px] ml-1" />
                         </button>
 
@@ -88,10 +83,7 @@ const InstitutionNav = () => {
 
                             {isMenuOpen && (
                                 <div className="absolute mt-2 bg-[#173E88] rounded-md shadow-lg w-[64px]">
-                                    <button
-                                        onClick={handleLogout}
-                                        className="px-3 py-2 text-left text-[12px] text-white w-full"
-                                    >
+                                    <button onClick={handleLogout} className="px-3 py-2 text-left text-[12px] text-white w-full">
                                         Logout
                                     </button>
                                 </div>
@@ -101,12 +93,24 @@ const InstitutionNav = () => {
                 </div>
             </nav>
 
-            {/* Content Based on Active Tab */}
-            <div>
-                {activeTab === "Dashboard" && <InstitutionDashboard />}
-                {activeTab === "Exam Packs" && <ExamPacks />}
-                {activeTab === "Students List" && <StudentsList />}
-                {activeTab === "Enquiries List" && <EnquiriesList />}
+            {/* Layout - Sidebar + Main Content */}
+            <div className="flex">
+                {/* Sidebar */}
+                {activeTab !== "Exam Packs" && activeTab !== "Students List" && activeTab !== "Enquiries List" && (
+                    <InstitutionSideNav onBuyMoreClick={handleBuyMoreClick} />
+                )}
+
+                {/* Main Content - Show either FifthStdPack or Active Tab Content */}
+                <div className="flex-1 p-4">
+                    {showFifthStdPack ? <FiftthStdPack /> : (
+                        <>
+                            {activeTab === "Dashboard" && <InstitutionDashboard />}
+                            {activeTab === "Exam Packs" && <ExamPacks />}
+                            {activeTab === "Students List" && <StudentsList />}
+                            {activeTab === "Enquiries List" && <EnquiriesList />}
+                        </>
+                    )}
+                </div>
             </div>
         </div>
     );

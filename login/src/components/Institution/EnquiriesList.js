@@ -56,7 +56,7 @@ const EnquiriesList = () => {
       {/* Table Section */}
       <div className="max-w-[1262px] mx-auto bg-white rounded-3xl mt-8">
         <div className="bg-[#94BDEB] rounded-t-3xl">
-          <h2 className="text-[14px] font-medium font-poppins text-left px-6 py-2">
+          <h2 className="text-[16px] font-medium font-poppins text-left px-6 py-2">
             Enquiries list
           </h2>
         </div>
@@ -64,23 +64,23 @@ const EnquiriesList = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-[linear-gradient(180deg,_rgba(80,131,205,0.3)_0%,_rgba(80,131,205,0.05)_100%)] text-left">
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">
                   Enquiry Date
                 </th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">
                   Student Name
                 </th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">
                   Pack type
                 </th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">
                   Contact Number
                 </th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">
                   Payment proof
                 </th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins"></th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins"></th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins"></th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins"></th>
               </tr>
             </thead>
             <tbody>
@@ -90,23 +90,23 @@ const EnquiriesList = () => {
                   className={`cursor-pointer ${index !== users.length - 1 ? "border-b border-[#94BDEB]" : ""
                     }`}
                 >
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                     {user.enquiryDate}
                   </td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                     {user.name}
                   </td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                     {user.packType}
                   </td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                     {user.contactNumber}
                   </td>
                   <td className="px-4 py-2 place-items-center text-[12px] text-black font-poppins">
                     {user.paymentProof}
                   </td>
                   {/* Contact Button or Text */}
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                     {user.contacted ? (
                       <span className="text-[#6D6B6B]">Contacted</span>
                     ) : (
@@ -119,7 +119,7 @@ const EnquiriesList = () => {
                     )}
                   </td>
                   {/* Assign Pack Button or Text */}
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">
                     {user.assigned ? (
                       <span className="text-[#6D6B6B]">Assigned</span>
                     ) : (

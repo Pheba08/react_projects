@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import InstitutionSideNav from "./InstitutionSideNav";
 import graduationIcon from "../../assets/graduationIcon.svg";
 import Sign_in_circle from "../../assets/Sign_in_circle.svg";
 import PaymentProof_img from "../../assets/PaymentProof_img.svg";
@@ -11,24 +10,22 @@ const InstitutionDashboard = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex">
-      {/* Sidebar */}
-      <InstitutionSideNav />
+    <div className="flex min-h-screen bg-[#E9F3FC] relative">
 
       {/* Main Content */}
-      <div className="flex-1 p-7">
+      <div className="flex-1 p-4">
         <div className="flex justify-between items-center mb-5">
-          <h1 className="text-left text-[40px] font-semibold">
+          <h1 className="text-left text-[48px] font-semibold">
             Your <br /> Dashboard
           </h1>
           {/* Search Bar */}
-          <div className="flex space-x-4 pt-20">
+          <div className="flex space-x-4 pt-24">
             <input
               type="text"
               placeholder="Search with contact number"
-              className="border border-[#173E88] rounded-lg px-4 py-2 text-[12px] text-[#6D6B6B] outline-none bg-transparent w-full md:w-[300px] h-[32px]"
+              className="border border-[#173E88] rounded-lg px-4 py-2 text-[14px] text-[#6D6B6B] outline-none bg-transparent w-full md:w-[400px] h-[32px]"
             />
-            <button className="bg-[#173E88] text-white px-4 py-2 rounded-lg text-[12px] h-[32px] w-[160px] cursor-pointer">
+            <button className="bg-[#173E88] text-white px-4 py-1 rounded-lg text-[14px] h-[32px] w-[160px] cursor-pointer">
               Search
             </button>
           </div>
@@ -93,7 +90,7 @@ const InstitutionDashboard = () => {
             {/* Column 4 - Payment Proof */}
             <div>
               <label className="block text-sm text-[#173E88] text-left font-medium mb-2">Payment Proof</label>
-              <div className="flex items-center bg-[#DFF0FF] px-4 py-1 gap-2 rounded-md w-[110%]">
+              <div className="flex items-center bg-[#DFF0FF] px-4 py-1 gap-2 rounded-md w-[120%]">
                 <img src={PaymentProof_img} alt="Payment Proof" className="w-7 h-7 mr-2" />
                 <span className="text-[12px] text-black text-left font-poppins mr-2">File name.pdf <br /> 9MB</span>
                 <a href="#" className="text-[#173E88] text-[12px] font-semibold">View</a>
@@ -101,25 +98,34 @@ const InstitutionDashboard = () => {
             </div>
             {/* Column 5 - Assign Button */}
             <div className="flex items-end">
-              <button className="bg-[#173E88] text-white px-4 py-2 ml-5 rounded-lg w-[70%]">
+              <button className="bg-[#173E88] text-white px-4 py-2 ml-8 rounded-lg w-[70%]">
                 Assign
               </button>
             </div>
           </div>
         </div>
-        
+
         {/* Referral Links Section */}
-        <div className="bg-white p-6 rounded-2xl mt-6 grid grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-2xl mt-6 grid grid-cols-3 gap-5">
           <div className="text-left">
             <span className="block text-lg font-bold">Referral Links</span>
             <span className="block text-sm text-black">Referral links for sharing with students</span>
           </div>
-          <div className="relative">
-            <input type="text" placeholder="Referral link" className="border border-[#173E88] rounded-lg px-4 py-2 w-[110%] outline-none" />
-            <img src={pasteSymbol} alt="Paste Symbol" className="absolute right-1 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer" />
+          <div className="relative w-[130%]">
+            <input
+              type="text"
+              placeholder="Referral link"
+              className="border border-[#173E88] rounded-lg px-4 py-2 w-full pr-10 outline-none"
+            />
+            <img
+              src={pasteSymbol}
+              alt="Paste Symbol"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 cursor-pointer"
+            />
           </div>
-          <button className="bg-[#173E88] text-white px-4 py-2 rounded-lg flex items-center justify-center w-[70%] ml-14">
-            Share referral links <img src={right_button_white} alt="Arrow Right" className="ml-8 w-6 h-6" />
+
+          <button className="bg-[#173E88] text-white text-[14px] px-4 py-3 rounded-lg flex items-end justify-center w-[68%] ml-20 h-[40px] ">
+            Share referral links <img src={right_button_white} alt="Arrow Right" className="ml-8 w-5 h-5" />
           </button>
         </div>
       </div>

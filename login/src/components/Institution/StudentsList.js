@@ -42,13 +42,13 @@ const StudentsList = () => {
           <input
             type="text"
             placeholder="Search with contact number"
-            className="border border-[#173E88] rounded-lg px-4 py-2 text-[12px] text-[#6D6B6B] outline-none bg-transparent w-full md:w-[250px] h-[32px]"
+            className="border border-[#173E88] rounded-lg px-4 py-2 text-[14px] text-[#6D6B6B] outline-none bg-transparent w-full md:w-[250px] h-[32px]"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button
             onClick={handleSearch}
-            className="bg-[#173E88] text-white px-4 py-2 rounded-lg text-[12px] h-[32px] w-[80px] cursor-pointer">
+            className="bg-[#173E88] text-white px-4 py-1 rounded-lg text-[14px] h-[32px] w-[80px] cursor-pointer">
             Search
           </button>
         </div>
@@ -63,20 +63,20 @@ const StudentsList = () => {
       {searchedStudent && (
         <div className="max-w-[94%] mx-auto bg-white border border-[#94BDEB] rounded-lg p-6 mt-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-semibold text-[#173E88]">Student Details</h2>
-            <span className="text-sm text-[#173E88]">Joined Date: {searchedStudent.joinedDate}</span>
+            <h2 className="text-[16px] font-semibold text-[#173E88]">Student Details</h2>
+            <span className="text-[14px] text-[#173E88]">Joined Date: {searchedStudent.joinedDate}</span>
           </div>
           <hr className="border-t-1 border-[#E9F3FC] my-2" />
           <div className="flex items-center gap-4">
             <img src={userImagePlaceholder} alt="Student" className="w-20 h-20 object-cover " />
             <div className="flex-1 text-left space-y-2">
-              <p className="text-md font-semibold">{searchedStudent.name}</p>
-              <p className="text-sm text-gray-700">Pack Alotted: {searchedStudent.packAlotted}</p>
-              <p className="text-sm text-gray-700">Date of Purchase: {searchedStudent.dateOfPurchase}</p>
-              <p className="text-sm text-gray-700">Contact Number: {searchedStudent.contactNumber}</p>
-              <p className="text-sm text-gray-700">Counselling Attended: {searchedStudent.counsellingAttended}</p>
+              <p className="text-[16px] font-semibold">{searchedStudent.name}</p>
+              <p className="text-[14px] text-black">Pack Alotted: {searchedStudent.packAlotted}</p>
+              <p className="text-[14px] text-black">Date of Purchase: {searchedStudent.dateOfPurchase}</p>
+              <p className="text-[14px] text-black">Contact Number: {searchedStudent.contactNumber}</p>
+              <p className="text-[14px] text-black">Counselling Attended: {searchedStudent.counsellingAttended}</p>
             </div>
-            <button className="text-white text-[12px] bg-[#173E88] px-8 py-2 border rounded-md mt-24 " onClick={() => setSearchedStudent(null)}>Cancel</button>
+            <button className="text-white text-[14px] bg-[#173E88] px-8 py-2 border rounded-md mt-24 " onClick={() => setSearchedStudent(null)}>Cancel</button>
           </div>
         </div>
       )}
@@ -115,7 +115,7 @@ const StudentsList = () => {
 
       <div className="max-w-[1262px] mx-auto bg-white rounded-3xl mt-8">
         <div className="bg-[#94BDEB] rounded-t-3xl">
-          <h2 className="text-[14px] font-medium font-poppins text-left px-6 py-2">
+          <h2 className="text-[16px] font-medium font-poppins text-left px-6 py-2">
             Students list
           </h2>
         </div>
@@ -123,23 +123,23 @@ const StudentsList = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="bg-[linear-gradient(180deg,_rgba(80,131,205,0.3)_0%,_rgba(80,131,205,0.05)_100%)] text-left">
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Joined Date</th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Student Name</th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Pack Alotted</th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Date of Purchase</th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Counselling Attended</th>
-                <th className="px-4 py-2 text-[12px] text-[#173E88] text-center font-poppins">Contact Number</th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Joined Date</th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Student Name</th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Pack Alotted</th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Date of Purchase</th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Counselling Attended</th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">Contact Number</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user, index) => (
                 <tr key={user.id} className={`cursor-pointer ${index !== users.length - 1 ? "border-b border-[#94BDEB]" : ""}`}>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.joinedDate}</td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.name}</td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.packAlotted}</td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.dateOfPurchase}</td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.counsellingAttended}</td>
-                  <td className="px-4 py-2 text-center text-[12px] text-black font-poppins">{user.contactNumber}</td>
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.joinedDate}</td>
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.name}</td>
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.packAlotted}</td>
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.dateOfPurchase}</td>
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.counsellingAttended}</td>
+                  <td className="px-4 py-2 text-center text-[14px] text-black font-poppins">{user.contactNumber}</td>
                 </tr>
               ))}
             </tbody>

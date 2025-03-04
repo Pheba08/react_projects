@@ -63,6 +63,8 @@ import InstitutionSideNav from "./components/Institution/InstitutionSideNav";
 import ProfileDetails from "./components/Institution/ProfileDetails";
 import EditProfileDetails from "./components/Institution/EditProfileDetails";
 import InstitutionInbox from "./components/Institution/InstitutionInbox";
+import FiftthStdPack from "./components/Institution/FifthStdPack";
+import SixthStdPack from "./components/Institution/SixthStdPack";
 
 
 function App() {
@@ -154,15 +156,23 @@ function App() {
             <Route path="/completeinstitutionprofile" element={<CompleteInstitutionProfile />} />
 
             <Route path="/institutionnav" element={<InstitutionNav />} />
-            <Route path="/institutionsidenav" element={<InstitutionSideNav />} />
-            <Route path="/profiledetails" element={<ProfileDetails />} />
-            <Route path="/editprofiledetails" element={<EditProfileDetails />} />
-            <Route path="/institutiondashboard" element={<InstitutionDashboard />} />
+              <Route path="institutiondashboard" element={<InstitutionDashboard />} />
               <Route path="institutioninbox" element={<InstitutionInbox />} />
               <Route path="exampacks" element={<ExamPacks />} />
               <Route path="studentslist" element={<StudentsList />} />
               <Route path="enquirieslist" element={<EnquiriesList />} />
 
+            <Route path="/institutionsidenav" element={<InstitutionSideNav />} />
+              <Route path="fifthstdpack" element={<FiftthStdPack />} />
+              <Route path="sixthstdpack" element={<SixthStdPack />} />
+
+            <Route path="/profiledetails" element={<ProfileDetails />} />
+            <Route path="/editprofiledetails" element={<EditProfileDetails />} />
+              <Route path="institutiondashboard" element={<InstitutionDashboard />} />
+              <Route path="institutioninbox" element={<InstitutionInbox />} />
+              <Route path="exampacks" element={<ExamPacks />} />
+              <Route path="studentslist" element={<StudentsList />} />
+              <Route path="enquirieslist" element={<EnquiriesList />} />
 
           </Routes>
         </Router>

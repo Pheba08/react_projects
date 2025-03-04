@@ -11,9 +11,9 @@ const ProfileDetails = () => {
       };    
 
     return (
-        <div className="min-h-screen bg-[#E9F3FC] overflow-hidden">
+        <div className="min-h-screen bg-[#E9F3FC]">
             {/* Navbar */}
-            <nav>
+            <nav className="sticky top-0 z-50">
                 <div className="bg-gradient-to-r from-[#173E88] to-[#5083CD] h-[38px]"></div>
                 <div className="bg-white h-[38px] flex items-center justify-between px-2 md:px-3">
                     <button
@@ -32,7 +32,7 @@ const ProfileDetails = () => {
                 </div>
             </nav>
 
-            <div className="mt-1 ml-12">
+            <div className="mt-1 ml-12 ">
                 <div className="col-span-3 flex flex-col gap-3">
 
                     <h2 className="text-[19px] text-left text-[#030303] font-nunito font-medium pt-4 pb-3">
@@ -91,7 +91,7 @@ const ProfileDetails = () => {
                         </div>
                     </div>
 
-                    <div className="bg-[#F9F9F9] pl-10 pt-1 rounded-xl text-left text-[#030303] space-y-4 pb-5 mr-10">
+                    <div className="bg-[#F9F9F9] pl-10 pt-1 rounded-xl text-left text-[#030303] space-y-4 pb-5 mr-10 mb-5">
                         <h2 className="text-[16px] font-semibold mt-4">Banking Information</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 text-[14px]">
                             <div className="space-y-2">
