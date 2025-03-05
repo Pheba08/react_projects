@@ -8,7 +8,8 @@ import ExamPacks from "./ExamPacks";
 import StudentsList from "./StudentsList";
 import EnquiriesList from "./EnquiriesList";
 import InstitutionSideNav from "./InstitutionSideNav";
-import FiftthStdPack from "./FifthStdPack";
+import JuniorPack from "./JuniorPack";
+import SeniorPack from "./SeniorPack";
 
 const InstitutionNav = () => {
     const navigate = useNavigate();
@@ -17,7 +18,8 @@ const InstitutionNav = () => {
         return localStorage.getItem("activeTab") || "Dashboard";
     });
 
-    const [showFifthStdPack, setShowFifthStdPack] = useState(false); // Toggle FifthStdPack
+    const [showJuniorPack, setShowJuniorPack] = useState(false); // Toggle FifthStdPack
+    const [showSeniorPack, setShowSeniorPack] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("activeTab", activeTab);
@@ -27,9 +29,16 @@ const InstitutionNav = () => {
     const handleInbox = () => navigate("/institutioninbox");
     const handleLogout = () => navigate("/loginpage");
 
-    const handleBuyMoreClick = () => {
-        setShowFifthStdPack(true); // Show FifthStdPack content
+    const handleBuyJuniorPack = () => {
+        setShowJuniorPack(true);
+        setShowSeniorPack(false);
     };
+
+    const handleBuySeniorPack = () => {
+        setShowSeniorPack(true);
+        setShowJuniorPack(false);
+    };
+
 
     return (
         <div className="min-h-screen bg-[#E9F3FC]">
@@ -48,13 +57,14 @@ const InstitutionNav = () => {
                         {["Dashboard", "Exam Packs", "Students List", "Enquiries List"].map((tab) => (
                             <button
                                 key={tab}
-                                className={`pb-2 text-[16px] font-semibold transition-all duration-200 relative ${activeTab === tab && !showFifthStdPack
+                                className={`pb-2 text-[16px] font-semibold transition-all duration-200 relative ${activeTab === tab && !showJuniorPack
                                     ? "text-[#173E88] after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-full after:h-[4px] after:bg-[#173E88] after:rounded-full after:font-bold"
                                     : "text-[#173E88] opacity-70 "
                                     }`}
-                                onClick={() => {
-                                    setActiveTab(tab);
-                                    setShowFifthStdPack(false); // Reset when switching tabs
+                                    onClick={() => {
+                                        setActiveTab(tab);
+                                        setShowJuniorPack(false);
+                                        setShowSeniorPack(false);
                                 }}
                             >
                                 {tab}
@@ -95,14 +105,13 @@ const InstitutionNav = () => {
 
             {/* Layout - Sidebar + Main Content */}
             <div className="flex">
-                {/* Sidebar */}
                 {activeTab !== "Exam Packs" && activeTab !== "Students List" && activeTab !== "Enquiries List" && (
-                    <InstitutionSideNav onBuyMoreClick={handleBuyMoreClick} />
+                    <InstitutionSideNav onBuyMoreClick={handleBuyJuniorPack} onBuySeniorClick={handleBuySeniorPack} />
                 )}
 
                 {/* Main Content - Show either FifthStdPack or Active Tab Content */}
                 <div className="flex-1 p-4">
-                    {showFifthStdPack ? <FiftthStdPack /> : (
+                {showJuniorPack ? <JuniorPack /> : showSeniorPack ? <SeniorPack /> : (
                         <>
                             {activeTab === "Dashboard" && <InstitutionDashboard />}
                             {activeTab === "Exam Packs" && <ExamPacks />}

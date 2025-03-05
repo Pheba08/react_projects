@@ -63,8 +63,8 @@ import InstitutionSideNav from "./components/Institution/InstitutionSideNav";
 import ProfileDetails from "./components/Institution/ProfileDetails";
 import EditProfileDetails from "./components/Institution/EditProfileDetails";
 import InstitutionInbox from "./components/Institution/InstitutionInbox";
-import FiftthStdPack from "./components/Institution/FifthStdPack";
-import SixthStdPack from "./components/Institution/SixthStdPack";
+import JuniorPack from "./components/Institution/JuniorPack";
+import SeniorPack from "./components/Institution/SeniorPack";
 
 
 function App() {
@@ -163,8 +163,8 @@ function App() {
               <Route path="enquirieslist" element={<EnquiriesList />} />
 
             <Route path="/institutionsidenav" element={<InstitutionSideNav />} />
-              <Route path="fifthstdpack" element={<FiftthStdPack />} />
-              <Route path="sixthstdpack" element={<SixthStdPack />} />
+              <Route path="juniorpack" element={<JuniorPack />} />
+              <Route path="seniorpack" element={<SeniorPack />} />
 
             <Route path="/profiledetails" element={<ProfileDetails />} />
             <Route path="/editprofiledetails" element={<EditProfileDetails />} />
