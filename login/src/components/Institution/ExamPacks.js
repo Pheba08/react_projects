@@ -6,12 +6,10 @@ const ExamPacks = () => {
   const navigate = useNavigate();
   const [selectedPack, setSelectedPack] = useState(null);
 
-  // Function to open modal
   const openModal = (packName) => {
     setSelectedPack(packName);
   };
 
-  // Function to close modal
   const closeModal = () => {
     setSelectedPack(null);
   };

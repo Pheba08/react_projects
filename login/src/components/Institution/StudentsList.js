@@ -56,7 +56,7 @@ const StudentsList = () => {
           className="p-2 cursor-pointer"
           onClick={() => setShowFilter(true)}
         >
-          <img src={FilterIcon} alt="Filter" className="w-5 h-5" />
+          <img src={FilterIcon} alt="Filter" className="w-7 h-7" />
         </button>
       </div>
 
@@ -92,17 +92,12 @@ const StudentsList = () => {
             </button>
             <div className="mt-4">
               <select className="w-full rounded-lg border-0 mt-1 bg-[#94BDEB]">
+                <option>All</option>
                 <option>India</option>
                 <option>USA</option>
               </select>
             </div>
-            <div className="mt-4">
-              <select className="w-full rounded-lg border-0 mt-1 bg-[#94BDEB]">
-                <option>All</option>
-                <option>New Institutions</option>
-                <option>Existing Institutions</option>
-              </select>
-            </div>
+
             <button
               className="mt-4 bg-[#173E88] text-white px-4 py-1 rounded-lg w-[85px] h-[34px] ml-[198px]"
               onClick={() => setShowFilter(false)}

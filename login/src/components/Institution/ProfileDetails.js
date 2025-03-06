@@ -24,7 +24,7 @@ const ProfileDetails = () => {
                         <span>Profile</span>
                     </button>
                     <button
-                        onClick={handleEditProfile} // Define this function as needed
+                        onClick={handleEditProfile} 
                         className="bg-[#173E88] text-white font-poppins font-medium text-[14px] px-6 py-1 rounded-full"
                     >
                         Edit Profile

@@ -9,6 +9,8 @@ import right_button_white from "../../assets/right_button_white.svg";;
 const InstitutionDashboard = () => {
   const navigate = useNavigate();
 
+  const handleStudentsList = () => navigate("/studentslist");
+
   return (
     <div className="flex min-h-screen bg-[#E9F3FC] relative">
 
@@ -25,7 +27,7 @@ const InstitutionDashboard = () => {
               placeholder="Search with contact number"
               className="border border-[#173E88] rounded-lg px-4 py-2 text-[14px] text-[#6D6B6B] outline-none bg-transparent w-full md:w-[400px] h-[32px]"
             />
-            <button className="bg-[#173E88] text-white px-4 py-1 rounded-lg text-[14px] h-[32px] w-[160px] cursor-pointer">
+            <button className="bg-[#173E88] text-white px-4 py-1 rounded-lg text-[14px] font-semibold h-[32px] w-[160px] cursor-pointer">
               Search
             </button>
           </div>
@@ -40,7 +42,9 @@ const InstitutionDashboard = () => {
               <div className="bg-white text-black px-8 py-2 rounded-full text-[14px] font-bold">
                 2346
               </div>
+              <button onClick={handleStudentsList}>
               <img src={Sign_in_circle} alt="Sign In" className="w-8 h-8" />
+              </button>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-lg text-left font-semibold">Total Students</span>
@@ -124,8 +128,8 @@ const InstitutionDashboard = () => {
             />
           </div>
 
-          <button className="bg-[#173E88] text-white text-[14px] px-4 py-3 rounded-lg flex items-end justify-center w-[68%] ml-20 h-[40px] ">
-            Share referral links <img src={right_button_white} alt="Arrow Right" className="ml-8 w-5 h-5" />
+          <button className="bg-[#173E88] text-white text-[16px] px-3 py-2 rounded-lg flex items-end justify-center w-[68%] ml-20 h-[40px] ">
+            Share referral links <img src={right_button_white} alt="Arrow Right" className="ml-5 w-5 h-5" />
           </button>
         </div>
       </div>

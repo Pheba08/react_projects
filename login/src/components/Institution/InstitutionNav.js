@@ -52,12 +52,12 @@ const InstitutionNav = () => {
                     {/* Logo */}
                     <img src={adminlogo} alt="Skills Connect Logo" className="w-[150px] h-[30px]" />
 
-                    {/* Tab Navigation - Always Visible */}
+                    {/* Tab Navigation */}
                     <div className="flex space-x-6 mt-1">
                         {["Dashboard", "Exam Packs", "Students List", "Enquiries List"].map((tab) => (
                             <button
                                 key={tab}
-                                className={`pb-2 text-[16px] font-semibold transition-all duration-200 relative ${activeTab === tab && !showJuniorPack
+                                className={`pb-2 text-[16px] font-semibold transition-all duration-200 relative ${activeTab === tab && !showJuniorPack && !showSeniorPack
                                     ? "text-[#173E88] after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-full after:h-[4px] after:bg-[#173E88] after:rounded-full after:font-bold"
                                     : "text-[#173E88] opacity-70 "
                                     }`}
@@ -103,13 +103,13 @@ const InstitutionNav = () => {
                 </div>
             </nav>
 
-            {/* Layout - Sidebar + Main Content */}
+            {/* Layout */}
             <div className="flex">
                 {activeTab !== "Exam Packs" && activeTab !== "Students List" && activeTab !== "Enquiries List" && (
                     <InstitutionSideNav onBuyMoreClick={handleBuyJuniorPack} onBuySeniorClick={handleBuySeniorPack} />
                 )}
 
-                {/* Main Content - Show either FifthStdPack or Active Tab Content */}
+                {/* Main Content */}
                 <div className="flex-1 p-4">
                 {showJuniorPack ? <JuniorPack /> : showSeniorPack ? <SeniorPack /> : (
                         <>

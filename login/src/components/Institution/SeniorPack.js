@@ -65,14 +65,13 @@ const SeniorPack = () => {
     <div>
       <div className="flex justify-between items-center p-3">
         <div className="relative">
-          {/* Ash Circle (Directly overlaying the text) */}
+
           <img
             src={ashCircle}
             alt="Ash Circle"
             className="absolute top-1/2 left-3 w-18 h-18 -translate-x-1/2 -translate-y-1/2"
           />
 
-          {/* Heading (Pack Name) */}
           <h2 className="text-[26px] text-left font-semibold text-black relative z-10">
             Senior pack
           </h2>
@@ -97,7 +96,7 @@ const SeniorPack = () => {
             </h3>
 
 
-            {/* PieChart with thin bars */}
+            {/* PieChart */}
             <PieChart width={70} height={70}>
               <Pie
                 data={[{ value: item.value }, { value: 100 - item.value }]}
