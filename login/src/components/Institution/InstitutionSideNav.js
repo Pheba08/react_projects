@@ -19,8 +19,10 @@ const packs = [
   { name: "Senior Pack", path: "/seniorpack" },
 ];
 
-const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick }) => {
+const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick, onAddPackClick }) => {
+
   const [showSupportPopup, setShowSupportPopup] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   return (
     <div className="relative flex">
@@ -30,7 +32,9 @@ const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick }) => {
         <div>
           <div className="flex items-center w-full">
             <h1 className="text-[28px] text-black font-semibold pl-5">My packs</h1>
-            <img src={addButton} alt="Add Button" className="w-[26px] h-[26px] ml-3 mt-2" />
+            <button onClick={onAddPackClick}>
+            <img src={addButton} alt="Add Button" className="w-[26px] h-[26px] ml-4 mt-2" />
+            </button>
           </div>
           <div className="h-[1px] bg-[#FFFFFF] w-full my-3"></div>
         </div>
@@ -53,7 +57,16 @@ const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick }) => {
                           {pack.name}
                         </h2>
                       </div>
-                      <img src={circleWithArrow} alt="Circle with Arrow" className="w-5 h-5" />
+                      <button
+                        onClick={() => {
+                          if (pack.name === "Junior Pack") {
+                            onBuyMoreClick();
+                          } else {
+                            onBuySeniorClick();
+                          }
+                        }}>
+                        <img src={circleWithArrow} alt="Circle with Arrow" className="w-5 h-5" />
+                      </button>
                     </div>
                     <div className="flex justify-around items-center">
                       {data.map((item, index) => (
@@ -90,14 +103,7 @@ const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick }) => {
                         </div>
                       ))}
                     </div>
-                    <button
-                      onClick={() => {
-                        if (pack.name === "Junior Pack") {
-                          onBuyMoreClick();
-                        } else {
-                          onBuySeniorClick();
-                        }
-                      }}
+                    <button onClick={onAddPackClick}
                       className="mt-3 ml-20 inline-block bg-[#173E88] text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-blue-800"
                     >
                       Buy More
@@ -128,7 +134,6 @@ const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick }) => {
         </div>
       </aside>
 
-
       <div className="flex-1 p-4">
         <Outlet />
       </div>
@@ -136,18 +141,56 @@ const InstitutionSideNav = ({ onBuyMoreClick, onBuySeniorClick }) => {
       {/* Support Popup */}
       {showSupportPopup && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-30 z-50">
-          <div className="bg-[#E9F3FC] p-6 rounded-lg flex items-center shadow-lg w-[500px] relative">
+          <div className="bg-[#E9F3FC] p-6 rounded-lg shadow-lg w-[500px] relative">
+            <h2 className="text-lg font-semibold text-black text-left">Send a Message</h2>
+            <div className="h-[1px] bg-[#94BDEB] w-full my-2"></div>
+            <input
+              type="text"
+              placeholder="Title"
+              className="w-full border border-[#94BDEB] p-2 rounded mt-2 text-[#6D6B6B] bg-[#E9F3FC] "
+            />
+            <textarea
+              placeholder="Message"
+              className="w-full border border-[#94BDEB] p-2 rounded mt-2 text-[#6D6B6B] h-24 bg-[#E9F3FC]"
+            ></textarea>
+            <div className="flex justify-end mt-2">
+              <button
+                onClick={() => {
+                  setShowSupportPopup(false);
+                  setShowConfirmation(true);
+                }}
+                className="bg-[#173E88] text-white px-4 py-2 rounded-md text-sm font-semibold"
+              >
+                Send
+              </button>
+            </div>
+            <button
+              onClick={() => setShowSupportPopup(false)}
+              className="absolute top-2 right-2"
+            >
+             <img src={supportCloseButton} alt="Close" className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Confirmation Popup */}
+      {showConfirmation && (
+        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-30 z-50">
+          <div className="bg-[#E9F3FC] p-8 rounded-lg flex items-center shadow-lg w-[500px] relative">
             <img src={supportTick} alt="Support Tick" className="w-12 h-12 mr-4" />
             <div>
               <h2 className="text-lg text-left pl-5 font-semibold text-black">Your Support Request Has Been Received.</h2>
               <p className="text-sm mt-2 text-black text-left pl-5">Thank you for reaching out to us. We have received your support request and our team is currently reviewing it.</p>
             </div>
-            <button onClick={() => setShowSupportPopup(false)} className="absolute top-2 right-2">
+            <button onClick={() => setShowConfirmation(false)} className="absolute top-2 right-2">
               <img src={supportCloseButton} alt="Close" className="w-5 h-5" />
             </button>
+
           </div>
         </div>
       )}
+
     </div>
   );
 };

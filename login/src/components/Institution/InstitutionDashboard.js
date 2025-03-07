@@ -1,21 +1,17 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import graduationIcon from "../../assets/graduationIcon.svg";
 import Sign_in_circle from "../../assets/Sign_in_circle.svg";
 import PaymentProof_img from "../../assets/PaymentProof_img.svg";
 import pasteSymbol from "../../assets/pasteSymbol.svg";
 import right_button_white from "../../assets/right_button_white.svg";;
 
-const InstitutionDashboard = () => {
-  const navigate = useNavigate();
-
-  const handleStudentsList = () => navigate("/studentslist");
+const InstitutionDashboard = ({ onTotalStudentsClick, onEnquiriesList }) => {
 
   return (
-    <div className="flex min-h-screen bg-[#E9F3FC] relative">
+    <div className="scrollable-container overflow-y-auto max-h-[540px] flex bg-[#E9F3FC] relative">
 
       {/* Main Content */}
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-3">
         <div className="flex justify-between items-center mb-5">
           <h1 className="text-left text-[48px] font-semibold">
             Your <br /> Dashboard
@@ -42,8 +38,8 @@ const InstitutionDashboard = () => {
               <div className="bg-white text-black px-8 py-2 rounded-full text-[14px] font-bold">
                 2346
               </div>
-              <button onClick={handleStudentsList}>
-              <img src={Sign_in_circle} alt="Sign In" className="w-8 h-8" />
+              <button onClick={onTotalStudentsClick}>
+                <img src={Sign_in_circle} alt="Sign In" className="w-8 h-8" />
               </button>
             </div>
             <div className="flex justify-between items-center">
@@ -61,7 +57,9 @@ const InstitutionDashboard = () => {
               <div className="bg-white text-black px-8 py-2 rounded-full text-[14px] font-bold">
                 2346
               </div>
-              <img src={Sign_in_circle} alt="Sign In" className="w-8 h-8" />
+              <button onClick={onEnquiriesList}>
+                <img src={Sign_in_circle} alt="Sign In" className="w-8 h-8" />
+              </button>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-lg text-left font-semibold">New <br /> Enquiries list</span>

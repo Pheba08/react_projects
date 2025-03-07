@@ -39,6 +39,18 @@ const InstitutionNav = () => {
         setShowJuniorPack(false);
     };
 
+    const handleAddPackClick = () => {
+        setActiveTab("Exam Packs");
+    };
+
+    const handleTotalStudents = () => {
+        setActiveTab("Students List");
+    };
+
+    const handleEnquiriesList = () => {
+        setActiveTab("Enquiries List");
+    };
+
 
     return (
         <div className="min-h-screen bg-[#E9F3FC]">
@@ -50,7 +62,16 @@ const InstitutionNav = () => {
                 {/* Second Layer */}
                 <div className="bg-white h-[38px] flex items-center justify-between px-5 md:px-10">
                     {/* Logo */}
-                    <img src={adminlogo} alt="Skills Connect Logo" className="w-[150px] h-[30px]" />
+                    <img
+                        src={adminlogo}
+                        alt="Skills Connect Logo"
+                        className="w-[150px] h-[30px] cursor-pointer"
+                        onClick={() => {
+                            setActiveTab("Dashboard");
+                            setShowJuniorPack(false);
+                            setShowSeniorPack(false);
+                        }}
+                    />
 
                     {/* Tab Navigation */}
                     <div className="flex space-x-6 mt-1">
@@ -61,10 +82,10 @@ const InstitutionNav = () => {
                                     ? "text-[#173E88] after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:w-full after:h-[4px] after:bg-[#173E88] after:rounded-full after:font-bold"
                                     : "text-[#173E88] opacity-70 "
                                     }`}
-                                    onClick={() => {
-                                        setActiveTab(tab);
-                                        setShowJuniorPack(false);
-                                        setShowSeniorPack(false);
+                                onClick={() => {
+                                    setActiveTab(tab);
+                                    setShowJuniorPack(false);
+                                    setShowSeniorPack(false);
                                 }}
                             >
                                 {tab}
@@ -104,21 +125,39 @@ const InstitutionNav = () => {
             </nav>
 
             {/* Layout */}
-            <div className="flex">
+            <div className="flex ">
                 {activeTab !== "Exam Packs" && activeTab !== "Students List" && activeTab !== "Enquiries List" && (
-                    <InstitutionSideNav onBuyMoreClick={handleBuyJuniorPack} onBuySeniorClick={handleBuySeniorPack} />
+                    <InstitutionSideNav onBuyMoreClick={handleBuyJuniorPack} onBuySeniorClick={handleBuySeniorPack} onAddPackClick={handleAddPackClick} onTotalStudentsClick={handleTotalStudents} onEnquiriesList={handleEnquiriesList} />
                 )}
 
                 {/* Main Content */}
                 <div className="flex-1 p-4">
-                {showJuniorPack ? <JuniorPack /> : showSeniorPack ? <SeniorPack /> : (
-                        <>
-                            {activeTab === "Dashboard" && <InstitutionDashboard />}
-                            {activeTab === "Exam Packs" && <ExamPacks />}
-                            {activeTab === "Students List" && <StudentsList />}
-                            {activeTab === "Enquiries List" && <EnquiriesList />}
-                        </>
+                    {showJuniorPack && (
+                        <JuniorPack
+                            setActiveTab={setActiveTab}
+                            setShowJuniorPack={setShowJuniorPack}
+
+                        />
                     )}
+                    {showSeniorPack && (
+                        <SeniorPack
+                            setActiveTab={setActiveTab}
+                            setShowSeniorPack={setShowSeniorPack}
+
+                        />
+                    )}
+                    <>
+                        {activeTab === "Dashboard" && (
+                            <InstitutionDashboard
+                                onTotalStudentsClick={() => setActiveTab("Students List")}
+                                onEnquiriesList={() => setActiveTab("Enquiries List")}
+                            />
+                        )}
+
+                        {activeTab === "Exam Packs" && <ExamPacks />}
+                        {activeTab === "Students List" && <StudentsList />}
+                        {activeTab === "Enquiries List" && <EnquiriesList />}
+                    </>
                 </div>
             </div>
         </div>

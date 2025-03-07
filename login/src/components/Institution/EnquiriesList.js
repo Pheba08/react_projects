@@ -9,13 +9,13 @@ const EnquiriesList = () => {
       id: 1,
       enquiryDate: "2024-01-01",
       name: "John Doe",
-      packType: "7th grade",
+      packType: "Junior pack",
       contactNumber: "123-456-7890",
       paymentProof: (
         <div className="flex items-center bg-[#DFF0FF] px-4 py-1 gap-2 rounded w-fit">
           <img src={PaymentProof_img} alt="Payment Proof" className="w-7 h-7 mr-2" />
           <span className="text-[12px] text-black text-left font-poppins mr-2">File name.pdf <br /> 9MB</span>
-          <a href="#" className="text-[#173E88] text-[12px] font-semibold">View</a>
+          <a href="#" className="text-[#173E88] text-[12px] font-semibold ">View</a>
         </div>
       ),
       contacted: false,
@@ -25,7 +25,7 @@ const EnquiriesList = () => {
       id: 2,
       enquiryDate: "2024-02-15",
       name: "Jane Smith",
-      packType: "7th grade",
+      packType: "Senior pack",
       contactNumber: "987-654-3210",
       paymentProof: "",
       contacted: true,
@@ -79,8 +79,8 @@ const EnquiriesList = () => {
                 <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins">
                   Payment proof
                 </th>
-                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins"></th>
-                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins"></th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins w-[120px] "></th>
+                <th className="px-4 py-2 text-[14px] text-[#173E88] text-center font-poppins w-[150px]"></th>
               </tr>
             </thead>
             <tbody>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { PieChart, Pie, Cell } from "recharts";
 import ashCircle from "../../assets/ashCircle.svg";
-import circleWithArrow from "../../assets/circleWithArrow.svg";
+import circleWithArrowOut from "../../assets/circleWithArrowOut.svg";
 import PaymentProof_img from "../../assets/PaymentProof_img.svg";
 
 const data = [
@@ -11,7 +11,7 @@ const data = [
   { name: "Balance", value: 20, color: "#E33333" },
 ];
 
-const JuniorPack = () => {
+const JuniorPack = ({ setActiveTab, setShowJuniorPack }) => {
   const navigate = useNavigate();
 
   const [users, setUsers] = useState([
@@ -80,11 +80,22 @@ const JuniorPack = () => {
         <div className="flex items-center gap-8">
           <button
             className="px-4 py-2 bg-[#173E88] text-white rounded-full hover:bg-blue-800"
-            onClick={() => navigate("/buy-more")}
+            onClick={() => {
+              setActiveTab("Exam Packs");
+              setShowJuniorPack(false);
+            }}
           >
             Buy More
           </button>
-          <img src={circleWithArrow} alt="Arrow" className="w-7 h-7" />
+
+          <button onClick={() => {
+            setActiveTab("Dashboard");
+            setShowJuniorPack(false);
+
+          }}>
+            <img src={circleWithArrowOut} alt="Arrow" className="w-7 h-7" />
+          </button>
+
         </div>
       </div>
 
@@ -113,7 +124,7 @@ const JuniorPack = () => {
                 <Cell key={`cell-${index}-filled`} fill={item.color} />
                 <Cell key={`cell-${index}-empty`} fill="#FFFFFF" />
               </Pie>
-              
+
               <foreignObject x="5%" y="5%" width="90%" height="90%">
                 <img src={ashCircle} alt="ashCircle" className="w-full h-full" />
               </foreignObject>

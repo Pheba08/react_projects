@@ -32,7 +32,7 @@ const EditProfileDetails = () => {
         </div>
       </nav>
 
-      <div className="mt-1 ml-12">
+      <div className="scrollable-container overflow-y-auto max-h-[540px] mt-1 ml-12 mr-2">
         <div className="col-span-3 flex flex-col gap-3">
           <h2 className="text-[19px] text-left text-[#030303] font-nunito font-medium pt-4 pb-3">
             Account Details

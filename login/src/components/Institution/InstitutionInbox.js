@@ -39,7 +39,6 @@ const InstitutionInbox = () => {
           <p className="text-[#8C8A8A] text-[12px] text-left ">1:22 pm . 12 July 2024</p>
         </div>
 
-
       </div>
       </div>
     </div>
